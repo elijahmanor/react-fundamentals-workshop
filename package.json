@@ -1,0 +1,37 @@
+{
+  "name": "react-fundamentals-workshop",
+  "version": "0.1.0",
+  "description": "Workshop for React Fundamentals",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "generate": "split-guide generate"
+  },
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.8"
+  },
+  "devDependencies": {
+    "split-guide": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elijahmanor/react-fundamentals-workshop.git"
+  },
+  "keywords": [
+    "react",
+    "fundamentals",
+    "workshop",
+    "training"
+  ],
+  "author": "Elijah Manor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elijahmanor/react-fundamentals-workshop/issues"
+  },
+  "homepage": "https://github.com/elijahmanor/react-fundamentals-workshop#readme"
+}
