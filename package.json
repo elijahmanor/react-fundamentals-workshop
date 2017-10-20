@@ -30,7 +30,11 @@
     "slides": "cross-env NODE_ENV=development node slides/server.js",
     "slides:clean": "rimraf slides/dist",
     "slides:build":
-      "npm run slides:clean && cross-env NODE_ENV=production webpack --display-error-details --config slides/webpack.config.production.js"
+      "npm run slides:clean && cross-env NODE_ENV=production webpack --display-error-details --config slides/webpack.config.production.js",
+    "gh-pages": "git subtree push --prefix slides origin gh-pages",
+    "gh-pages:force": "git push origin `git subtree split --prefix slides master`:gh-pages --force",
+    "gh-pages:refresh":
+      "git push origin :gh-pages && git subtree push --prefix slides origin gh-pages"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.12",
