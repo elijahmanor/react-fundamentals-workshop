@@ -1,0 +1,60 @@
+.Fuse {
+  /* margin: 0.5rem; */
+  background-color: var(--color-section-bg);
+  border-bottom: 1px solid var(--color-divider);
+  display: flex;
+}
+
+.Fuse-avatar {
+  border-radius: 50%;
+  height: 4em;
+  width: 4em;
+  margin: 1rem;
+  max-width: 100%;
+}
+
+.Fuse-body {
+  width: 100%;
+  margin: 1rem 1rem 1rem 0;
+}
+
+.Fuse-header {
+  display: flex;
+  color: var(--color-text-secondary);
+}
+
+.Fuse-fullName {
+  color: var(--color-text-primary);
+  font-weight: bold;
+}
+
+.Fuse-userName {
+}
+
+.Fuse-message {
+  margin-bottom: 0.5rem;
+}
+
+.Fuse-date {
+}
+
+.Fuse-comment {
+}
+
+.Fuse-actions {
+}
+
+.FuseActions-action {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-right: 1rem;
+}
+
+.FuseActions-action .fa.is-active {
+  color: #ed1b2e;
+}

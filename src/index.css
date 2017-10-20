@@ -1,0 +1,21 @@
+:root {
+  --color-body-bg: #e5ecf0;
+  --color-section-bg: white;
+  --color-divider: #ccc;
+  --color-text-primary: black;
+  --color-text-secondary: #999;
+  --color-button-bg: #95c83e;
+  --color-button-bg--dark: #7fa33d;
+  --color-button-bg--darker: #678530;
+  --color-button-bg--darkest: #50612d;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
