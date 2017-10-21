@@ -15,8 +15,14 @@ import {
   Layout,
   Fit,
   Fill,
-  Link
+  Link,
+  MarkdownSlides
 } from "spectacle";
+import ReactModal from "react-modal";
+import mousetrap from "mousetrap";
+import Select from "react-select";
+import "react-select/dist/react-select.css";
+import _ from "lodash";
 
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
@@ -56,7 +62,16 @@ const theme = createTheme(
   }
 );
 
-const Group = {
+/*
+https://github.com/elijahmanor/elijahmanor.github.com/tree/master/talks/react-to-the-future/src/md
+require('!raw!../../md/gotchas.md')
+require('!raw!../../md/flux.md')
+require('!raw!../../md/node-modules.md')
+require('!raw!../../md/npm-scripts.md')
+require('!raw!../../md/resources.md')
+*/
+
+const Groups = {
   introduction: require("../groups/00-introduction.js").default,
   whatWhereWhy: require("../groups/01-what-where-why.js").default,
   lab01: require("../groups/01L-lab-01-setup.js").default,
@@ -84,48 +99,191 @@ const Group = {
   lab10: require("../groups/14L-lab-10-jest.js").default,
   performance: require("../groups/15-performance.js").default,
   lab11: require("../groups/15L-lab-11-performance.js").default,
-  universalJavaScript: require("../groups/16-universal-javascript.js").default
+  universalJavaScript: require("../groups/16-universal-javascript.js").default,
+  conclusion: require("../groups/99-conclusion.js").default
 };
 
-export default class Presentation extends React.Component {
+class Menu extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedGroups: props.selectedGroups
+    };
+  }
+  handleUpdate = () => {
+    this.props.onUpdate(this.state.selectedGroups);
+  };
+  handleChange = e => {
+    const { checked, value } = e.target;
+    selectedGroups = checked ? [...selectedGroups, value] : _.without(selectedGroups, value);
+    this.setState({ selectedGroups });
+  };
   render() {
+    const { isOpen, groupOptions, onClose } = this.props;
+    const { selectedGroups } = this.state;
+
     return (
-      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} progress="number">
-        {Group.introduction(theme, images)}
-        {Group.whatWhereWhy(theme, images)}
-        {Group.lab01(theme, images)}
-        {Group.components(theme, images)}
-        {Group.props(theme, images)}
-        {Group.lab02(theme, images)}
-        {Group.state(theme, images)}
-        {Group.lifecycle(theme, images)}
-        {Group.lists(theme, images)}
-        {Group.lab03(theme, images)}
-        {Group.eventHandlers(theme, images)}
-        {Group.lab04(theme, images)}
-        {Group.references(theme, images)}
-        {Group.forms(theme, images)}
-        {Group.lab05(theme, images)}
-        {Group.hoc(theme, images)}
-        {Group.lab06(theme, images)}
-        {Group.renderProps(theme, images)}
-        {Group.lab07(theme, images)}
-        {Group.styles(theme, images)}
-        {Group.lab08(theme, images)}
-        {Group.redux(theme, images)}
-        {Group.lab09(theme, images)}
-        {Group.jest(theme, images)}
-        {Group.lab10(theme, images)}
-        {Group.performance(theme, images)}
-        {Group.lab11(theme, images)}
-        {Group.universalJavaScript(theme, images)}
-        <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
-          <BlockQuote>
-            <Quote textColor="secondary">Example Quote</Quote>
-            <Cite>Author</Cite>
-          </BlockQuote>
-        </Slide>
-      </Deck>
+      <ReactModal isOpen={isOpen} contentLabel="Basic Modal">
+        <h1>This is a Modal</h1>
+
+        <form>
+          {groupOptions.map(group => (
+            <div className="checkbox">
+              <label>
+                <input
+                  type="checkbox"
+                  value={group}
+                  checked={selectedGroups.some(g => g === group)}
+                  onChange={this.handleChange}
+                />
+                {group}
+              </label>
+            </div>
+          ))}
+        </form>
+
+        <button onClick={this.handleUpdate}>Update</button>
+        <button onClick={onClose}>Close</button>
+      </ReactModal>
     );
   }
 }
+
+const Help = ({ isOpen, onClose }) => {
+  return (
+    <ReactModal isOpen={isOpen} contentLabel="Basic Modal">
+      <h1>Controls</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Key Combination</th>
+            <th>Function</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Right Arrow</td>
+            <td>Next Slide</td>
+          </tr>
+          <tr>
+            <td>Left Arrow</td>
+            <td>Previous Slide</td>
+          </tr>
+          <tr>
+            <td>Space</td>
+            <td>Next Slide</td>
+          </tr>
+          <tr>
+            <td>Shift+Space</td>
+            <td>Previous Slide</td>
+          </tr>
+          <tr>
+            <td>Alt/Option + O</td>
+            <td>Toggle Overview Mode</td>
+          </tr>
+          <tr>
+            <td>Alt/Option + P</td>
+            <td>Toggle Presenter Mode</td>
+          </tr>
+          <tr>
+            <td>Alt/Option + T</td>
+            <td>Toggle Timer in Presenter Mode</td>
+          </tr>
+          <tr>
+            <td>Alt/Option + A</td>
+            <td>Start autoplay (if enabled)</td>
+          </tr>
+        </tbody>
+      </table>
+      <button onClick={onClose}>Close</button>
+    </ReactModal>
+  );
+};
+
+const groupOptions = Object.keys(Groups);
+let selectedGroups = window.localStorage.getItem("selectedGroups");
+if (selectedGroups) {
+  selectedGroups = JSON.parse(selectedGroups);
+} else {
+  selectedGroups = groupOptions;
+}
+
+export default class Presentation extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isMenuOpen: false,
+      isHelpOpen: false,
+      selectedGroups
+    };
+  }
+  componentWillMount() {
+    mousetrap.bind("m", () => this.setState({ isMenuOpen: true }));
+    mousetrap.bind("?", () => this.setState({ isHelpOpen: true }));
+    mousetrap.bind("esc", () => this.setState({ isMenuOpen: false, isHelpOpen: false }));
+  }
+  componentWillUnmount() {
+    mousetrap.unbind("m");
+    mousetrap.unbind("?");
+    mousetrap.unbind("esc");
+  }
+  handleOnClose = () => {
+    this.setState({ isMenuOpen: false, isHelpOpen: false });
+  };
+  handleOnUpdate = selectedGroups => {
+    window.localStorage.setItem("selectedGroups", JSON.stringify(selectedGroups));
+    window.location.reload();
+  };
+  render() {
+    const { isMenuOpen, isHelpOpen, selectedGroups } = this.state;
+
+    return (
+      <div>
+        <Deck transition={["slide"]} transitionDuration={500} theme={theme} progress="number">
+          {selectedGroups.map(selectedGroup => Groups[selectedGroup](theme, images))}
+        </Deck>
+        <Menu
+          isOpen={isMenuOpen}
+          groupOptions={groupOptions}
+          selectedGroups={selectedGroups}
+          onUpdate={this.handleOnUpdate}
+          onClose={this.handleOnClose}
+        />
+        <Help isOpen={isHelpOpen} onClose={this.handleOnClose} />
+      </div>
+    );
+  }
+}
+
+/*
+          {Groups.introduction(theme, images)}
+          {Groups.whatWhereWhy(theme, images)}
+          {Groups.lab01(theme, images)}
+          {Groups.components(theme, images)}
+          {Groups.props(theme, images)}
+          {Groups.lab02(theme, images)}
+          {Groups.state(theme, images)}
+          {Groups.lifecycle(theme, images)}
+          {Groups.lists(theme, images)}
+          {Groups.lab03(theme, images)}
+          {Groups.eventHandlers(theme, images)}
+          {Groups.lab04(theme, images)}
+          {Groups.references(theme, images)}
+          {Groups.forms(theme, images)}
+          {Groups.lab05(theme, images)}
+          {Groups.hoc(theme, images)}
+          {Groups.lab06(theme, images)}
+          {Groups.renderProps(theme, images)}
+          {Groups.lab07(theme, images)}
+          {Groups.styles(theme, images)}
+          {Groups.lab08(theme, images)}
+          {Groups.redux(theme, images)}
+          {Groups.lab09(theme, images)}
+          {Groups.jest(theme, images)}
+          {Groups.lab10(theme, images)}
+          {Groups.performance(theme, images)}
+          {Groups.lab11(theme, images)}
+          {Groups.universalJavaScript(theme, images)}
+          {Groups.conclusion(theme, images)}
+
+*/
