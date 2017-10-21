@@ -15,3 +15,7 @@ Unlike some of React's competitors, it's fairly small and not complex on its own
 As we build our React application we will continue to add new features and refactor our approach as the app gets more complex. In addition, we will address how to detect performance bottlenecks, talk about unit testing tools, build a basic pattern library, and discuss various approaches when styling components.
 
 **This workshop will have some hands-on aspects. Please bring your own fully charged laptop.**
+
+## Slides
+
+http://elijahmanor.com/react-fundamentals-workshop
