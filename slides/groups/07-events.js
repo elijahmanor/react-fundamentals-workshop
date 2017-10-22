@@ -21,13 +21,13 @@ import {
 
 export default (theme, images) => [
   <Slide
-    id="lab-11"
+    id="events"
     transition={["slide"]}
     bgColor="black"
     notes="You can even put notes on your slide. How awesome is that?"
   >
     <Heading textColor="quartenary" caps fit>
-      Lab #11 - Performance
+      Event Handlers
     </Heading>
   </Slide>
 ];
