@@ -72,19 +72,19 @@ require('!raw!../../md/resources.md')
 */
 
 const Groups = {
-  introduction: require("../groups/00-introduction.js").default,
-  whatWhereWhy: require("../groups/01-what-where-why.js").default,
+  start: require("../groups/00-start.js").default,
+  what: require("../groups/01-what.js").default,
   lab01: require("../groups/01L-lab-01-setup.js").default,
-  components: require("../groups/02-components.js").default,
+  comps: require("../groups/02-comps.js").default,
   props: require("../groups/03-props.js").default,
   lab02: require("../groups/03L-lab-02-props.js").default,
   state: require("../groups/04-state.js").default,
-  lifecycle: require("../groups/05-lifecycle.js").default,
+  life: require("../groups/05-life.js").default,
   lists: require("../groups/06-lists.js").default,
   lab03: require("../groups/06L-lab-03-state.js").default,
-  eventHandlers: require("../groups/07-event-handlers.js").default,
+  events: require("../groups/07-events.js").default,
   lab04: require("../groups/07L-lab-04-events.js").default,
-  references: require("../groups/08-references.js").default,
+  refs: require("../groups/08-refs.js").default,
   forms: require("../groups/09-forms.js").default,
   lab05: require("../groups/09L-lab-05-forms.js").default,
   hoc: require("../groups/10-hoc.js").default,
@@ -97,10 +97,10 @@ const Groups = {
   lab09: require("../groups/13L-lab-09-redux.js").default,
   jest: require("../groups/14-jest.js").default,
   lab10: require("../groups/14L-lab-10-jest.js").default,
-  performance: require("../groups/15-performance.js").default,
-  lab11: require("../groups/15L-lab-11-performance.js").default,
-  universalJavaScript: require("../groups/16-universal-javascript.js").default,
-  conclusion: require("../groups/99-conclusion.js").default
+  perf: require("../groups/15-perf.js").default,
+  lab11: require("../groups/15L-lab-11-perf.js").default,
+  universal: require("../groups/16-universal.js").default,
+  finish: require("../groups/99-finish.js").default
 };
 
 class Menu extends React.Component {
@@ -123,25 +123,48 @@ class Menu extends React.Component {
     const { selectedGroups } = this.state;
 
     return (
-      <ReactModal isOpen={isOpen} contentLabel="Basic Modal">
+      <ReactModal
+        isOpen={isOpen}
+        contentLabel="Basic Modal"
+        style={{
+          overlay: {
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(255, 255, 255, 0.75)"
+          },
+          content: {
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            height: "75%",
+            width: "75%",
+            border: "1px solid #ccc",
+            background: "#fff",
+            overflow: "auto",
+            WebkitOverflowScrolling: "touch",
+            borderRadius: "4px",
+            outline: "none",
+            padding: "20px"
+          }
+        }}
+      >
         <h1>This is a Modal</h1>
-
-        <form>
+        <form style={{ display: "flex", flexWrap: "wrap" }}>
           {groupOptions.map(group => (
-            <div className="checkbox">
-              <label>
-                <input
-                  type="checkbox"
-                  value={group}
-                  checked={selectedGroups.some(g => g === group)}
-                  onChange={this.handleChange}
-                />
-                {group}
-              </label>
-            </div>
+            <label style={{ minWidth: "20rem" }}>
+              <input
+                type="checkbox"
+                value={group}
+                checked={selectedGroups.some(g => g === group)}
+                onChange={this.handleChange}
+              />&nbsp;{group}
+            </label>
           ))}
         </form>
-
         <button onClick={this.handleUpdate}>Update</button>
         <button onClick={onClose}>Close</button>
       </ReactModal>
