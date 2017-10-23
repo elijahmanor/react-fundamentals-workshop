@@ -1,22 +1,69 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import _ from "lodash";
 
 import "./Fuse.css";
 
-const FuseActions = ({ id, userName, bomb, onReply, onBomb }) => {
-  const classes = classNames("fa fa-bomb", {
-    "is-active": bomb
+import Sound from "react-sound";
+import soundFile from "./bomb.mp3";
+
+const randomExplosion = WrappedComponent =>
+  class extends Component {
+    constructor(props) {
+      super(props);
+      this.state = { isExploding: false };
+    }
+    handleClick = e => {
+      const { isActive, onClick } = this.props;
+      const isExploding = !isActive && _.random(100) >= 50;
+      this.setState(state => ({ isExploding }));
+      onClick && onClick(e);
+    };
+    render() {
+      const { isExploding } = this.state;
+      const classes = classNames(this.className, {
+        "is-explode": isExploding
+      });
+      const wrapped = (
+        <WrappedComponent {...this.props} className={classes} onClick={this.handleClick} />
+      );
+      return isExploding ? (
+        <span>
+          {wrapped}
+          <Sound url={soundFile} playStatus={Sound.status.PLAYING} />
+        </span>
+      ) : (
+        wrapped
+      );
+    }
+  };
+
+const Icon = ({ className, type, isActive, onClick }) => {
+  const classes = classNames(className, "fa", {
+    [`fa-${type}`]: true,
+    "is-active": isActive
   });
+  return (
+    <button className="Icon" onClick={onClick}>
+      <i className={classes} aria-hidden="true" />
+    </button>
+  );
+};
+
+const RandomExplosionIcon = randomExplosion(Icon);
+
+const FuseActions = ({ id, userName, bomb, onReply, onBomb }) => {
   onBomb = onBomb.bind(null, { id, bomb: !bomb });
   return (
     <div className="FuseActions">
-      <button className="FuseActions-action" onClick={onReply}>
-        <i className="fa fa-comment-o" aria-hidden="true" />
-      </button>
-      <button className="FuseActions-action is-active" onClick={onBomb}>
-        <i className={classes} aria-hidden="true" />
-      </button>
+      <Icon type="comment-o" className="FuseActions-action" onClick={onReply} />
+      <RandomExplosionIcon
+        type="bomb"
+        isActive={bomb}
+        className="FuseActions-action"
+        onClick={onBomb}
+      />
     </div>
   );
 };
