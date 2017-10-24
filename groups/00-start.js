@@ -21,7 +21,7 @@ import {
 } from "spectacle";
 
 export default (theme, images) => (
-  <SlideSet>
+  <SlideSet key="start">
     <Slide transition={["fade"]} bgImage={images.react} bgDarken={0.8}>
       <Heading size={1} fit caps lineHeight={1} textColor="secondary">
         React

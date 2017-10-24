@@ -7,6 +7,7 @@ import {
   List,
   Quote,
   Slide,
+  SlideSet,
   Text,
   CodePane,
   ComponentPlayground,
@@ -19,18 +20,32 @@ import {
   Image
 } from "spectacle";
 
-export default (theme, images) => [
-  <Slide
-    id="what-where-why"
-    transition={["slide"]}
-    bgColor="black"
-    notes="You can even put notes on your slide. How awesome is that?"
-  >
-    <Heading textColor="quartenary" caps fit>
-      What is React?
-    </Heading>
-  </Slide>,
-  MarkdownSlides`
+export default (theme, images) => (
+  <SlideSet key="what">
+    <Slide
+      id="what-where-why"
+      transition={["slide"]}
+      bgColor="black"
+      notes="You can even put notes on your slide. How awesome is that?"
+    >
+      <Heading textColor="quartenary" caps fit>
+        What is React?
+      </Heading>
+    </Slide>
+    <Slide
+      transition={["slide"]}
+      bgColor="black"
+      notes="You can even put notes on your slide. How awesome is that?"
+    >
+      <Heading textColor="quartenary" caps fit>
+        What is React 2?
+      </Heading>
+    </Slide>
+  </SlideSet>
+);
+
+/*
+    {MarkdownSlides`
 <!--
 {
   "className": "Slide--title"
@@ -188,10 +203,10 @@ var NoteBox = React.createClass({
 Once you know the basics (we'll cover those in this talk), then you can get started building locally with the [create-react-app](https://github.com/facebookincubator/create-react-app) command-line utility.
 
 Or, if you just want to tinker online then [codesandbox.io](https://codesandbox.io) is a great option!
-`
-];
+`}
+  </SlideSet>
+);
 
-/*
 # Large Scale Applications?
 
 * React scales better with complexity
@@ -214,4 +229,5 @@ React is abstracted away from the browser, while Web Components will be a native
 
 * [Improving Angular Rendering Performance](http://mono.software/posts/Improving-AngularJS-long-list-rendering-performance-using-ReactJS/) & [Faster Angular Rendering](http://www.williambrownstreet.net/blog/2014/04/faster-angularjs-rendering-angularjs-and-reactjs/)
 * [Using React as Backbone View](http://www.thomasboyt.com/2013/12/17/using-reactjs-as-a-backbone-view.html)
+
 */
