@@ -155,7 +155,7 @@ class Menu extends React.Component {
         <h1>This is a Modal</h1>
         <form style={{ display: "flex", flexWrap: "wrap" }}>
           {groupOptions.map(group => (
-            <label style={{ minWidth: "20rem" }}>
+            <label key={group} style={{ minWidth: "20rem" }}>
               <input
                 type="checkbox"
                 value={group}
@@ -228,7 +228,8 @@ let selectedGroups = window.localStorage.getItem("selectedGroups");
 if (selectedGroups) {
   selectedGroups = JSON.parse(selectedGroups);
 } else {
-  selectedGroups = groupOptions;
+  selectedGroups = ["start", "what", "lab01", "comps"];
+  // groupOptions;
 }
 
 export default class Presentation extends React.Component {
@@ -277,36 +278,3 @@ export default class Presentation extends React.Component {
     );
   }
 }
-
-/*
-          {Groups.introduction(theme, images)}
-          {Groups.whatWhereWhy(theme, images)}
-          {Groups.lab01(theme, images)}
-          {Groups.components(theme, images)}
-          {Groups.props(theme, images)}
-          {Groups.lab02(theme, images)}
-          {Groups.state(theme, images)}
-          {Groups.lifecycle(theme, images)}
-          {Groups.lists(theme, images)}
-          {Groups.lab03(theme, images)}
-          {Groups.eventHandlers(theme, images)}
-          {Groups.lab04(theme, images)}
-          {Groups.references(theme, images)}
-          {Groups.forms(theme, images)}
-          {Groups.lab05(theme, images)}
-          {Groups.hoc(theme, images)}
-          {Groups.lab06(theme, images)}
-          {Groups.renderProps(theme, images)}
-          {Groups.lab07(theme, images)}
-          {Groups.styles(theme, images)}
-          {Groups.lab08(theme, images)}
-          {Groups.redux(theme, images)}
-          {Groups.lab09(theme, images)}
-          {Groups.jest(theme, images)}
-          {Groups.lab10(theme, images)}
-          {Groups.performance(theme, images)}
-          {Groups.lab11(theme, images)}
-          {Groups.universalJavaScript(theme, images)}
-          {Groups.conclusion(theme, images)}
-
-*/

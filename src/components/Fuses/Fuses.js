@@ -4,12 +4,12 @@ import Fuse from "../Fuse/Fuse";
 
 import "./Fuses.css";
 
-const Fuses = ({ className, fuses, onBomb }) => {
+const Fuses = ({ className, fuses, onBomb, onReply }) => {
   const classes = classNames("Fuses", className);
 
   return (
     <div className={classes}>
-      {fuses.map(fuse => <Fuse key={fuse.id} {...fuse} onBomb={onBomb} />)}
+      {fuses.map(fuse => <Fuse key={fuse.id} {...fuse} onBomb={onBomb} onReply={onReply} />)}
     </div>
   );
 };

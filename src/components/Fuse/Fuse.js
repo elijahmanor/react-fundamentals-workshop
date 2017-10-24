@@ -6,8 +6,9 @@ import FuseActions from "./FuseActions";
 
 import "./Fuse.css";
 
-const Fuse = ({ id, date, userName, fullName, avatar, email, message, bomb, onBomb }) => {
+const Fuse = ({ id, date, userName, fullName, avatar, email, message, bomb, onBomb, onReply }) => {
   const url = avatar || `https://www.gravatar.com/avatar/${md5(email)}`;
+  const user = { userName, fullName };
 
   return (
     <div className="Fuse">
@@ -23,7 +24,7 @@ const Fuse = ({ id, date, userName, fullName, avatar, email, message, bomb, onBo
           </div>
         </header>
         <div className="Fuse-message">{message}</div>
-        <FuseActions id={id} userName={userName} bomb={bomb} onBomb={onBomb} />
+        <FuseActions id={id} user={user} bomb={bomb} onBomb={onBomb} onReply={onReply} />
       </article>
     </div>
   );
@@ -38,7 +39,8 @@ Fuse.propTypes = {
   email: PropTypes.string,
   message: PropTypes.string.isRequired,
   bomb: PropTypes.bool.isRequired,
-  onBomb: PropTypes.func.isRequired
+  onBomb: PropTypes.func.isRequired,
+  onReply: PropTypes.func.isRequired
 };
 
 React.defaultProps = {

@@ -20,6 +20,9 @@ const randomExplosion = WrappedComponent =>
       this.setState(state => ({ isExploding }));
       onClick && onClick(e);
     };
+    handleFinish = () => {
+      this.setState({ isExploding: false });
+    }
     render() {
       const { isExploding } = this.state;
       const classes = classNames(this.className, {
@@ -31,7 +34,7 @@ const randomExplosion = WrappedComponent =>
       return isExploding ? (
         <span>
           {wrapped}
-          <Sound url={soundFile} playStatus={Sound.status.PLAYING} />
+          <Sound url={soundFile} playStatus={Sound.status.PLAYING} onFinishedPlaying={this.handleFinish} />
         </span>
       ) : (
         wrapped
@@ -53,8 +56,9 @@ const Icon = ({ className, type, isActive, onClick }) => {
 
 const RandomExplosionIcon = randomExplosion(Icon);
 
-const FuseActions = ({ id, userName, bomb, onReply, onBomb }) => {
+const FuseActions = ({ id, user, bomb, onReply, onBomb }) => {
   onBomb = onBomb.bind(null, { id, bomb: !bomb });
+  onReply = onReply.bind(null, { id, user });
   return (
     <div className="FuseActions">
       <Icon type="comment-o" className="FuseActions-action" onClick={onReply} />

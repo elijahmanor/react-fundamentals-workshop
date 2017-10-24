@@ -5,6 +5,7 @@ import Fuses from "../../components/Fuses/Fuses";
 import Ads from "../../components/Ads/Ads";
 import Footer from "../../components/Footer/Footer";
 import Compose from "../../components/Compose/Compose";
+import Reply from "../../components/Reply/Reply";
 import { getUser } from "../../services/user";
 import { getFuses, updateFuse, addFuse } from "../../services/fuse";
 
@@ -39,7 +40,8 @@ export default class App extends Component {
   state = {
     user: {},
     fuses: [],
-    showModal: false
+    showCompose: false,
+    showReply: false
   };
   componentDidMount() {
     this.fetchFuses();
@@ -50,19 +52,23 @@ export default class App extends Component {
   handleBomb = ({ id, bomb }, e) => {
     updateFuse({ id, bomb }).then(this.fetchFuses);
   };
-  handleNew = () => {
-    this.setState({ showModal: true });
+  handleReply = ({ id, user }) => {
+    const replyingTo = { id, ...user };
+    this.setState({ replyingTo, showReply: true });
   };
-  handleCompose = ({ message, user }) => {
-    addFuse({ message, user }).then(this.fetchFuses);
-    this.setState({ showModal: false });
+  handleNew = () => {
+    this.setState({ showCompose: true });
+  };
+  handleCompose = ({ message, user, replyingTo }) => {
+    addFuse({ message, user, replyingTo }).then(this.fetchFuses);
+    this.handleClose();
   };
   handleClose = () => {
-    this.setState({ showModal: false });
+    this.setState({ showCompose: false, showReply: false });
   };
   render() {
-    const { user, fuses, showModal } = this.state;
-    // <WrappedProfile className="App-profile" />
+    const { user, fuses, showCompose, showReply, replyingTo } = this.state;
+
     return (
       <div className="App">
         <Toolbar className="App-toolbar" user={user} onNew={this.handleNew} />
@@ -70,15 +76,28 @@ export default class App extends Component {
           {user => [
             <Profile className="App-profile" user={user} />,
             <Compose
-              isOpen={showModal}
+              isOpen={showCompose}
               fuse={""}
               user={user}
+              onCompose={this.handleCompose}
+              onClose={this.handleClose}
+            />,
+            <Reply
+              isOpen={showReply}
+              fuse={""}
+              user={user}
+              replyingTo={replyingTo}
               onCompose={this.handleCompose}
               onClose={this.handleClose}
             />
           ]}
         </UserInfo>
-        <Fuses className="App-list" fuses={fuses} onBomb={this.handleBomb} />
+        <Fuses
+          className="App-list"
+          fuses={fuses}
+          onBomb={this.handleBomb}
+          onReply={this.handleReply}
+        />
         <Ads className="App-ads" />
         <Footer className="App-footer" />
       </div>
