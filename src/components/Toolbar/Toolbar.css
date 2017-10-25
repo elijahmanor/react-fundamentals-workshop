@@ -8,6 +8,16 @@
   padding-left: 0;
 }
 
+.Toolbar-item.Toolbar-item--logo {
+  font-family: "Guevara";
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  white-space: nowrap;
+  padding: 1.5rem 0 0 0.5rem;
+}
+
 .Toolbar-logo {
   max-height: 50px;
 }
@@ -29,4 +39,59 @@
 
 .Toolbar:after {
   left: 100%;
+}
+
+@font-face {
+  font-family: "Guevara";
+  /* src: url('http://www.fontsaddict.com/fontface/guevara.TTF'); */
+  src: url("../../images/GUEVARA_.TTF");
+}
+
+/* body {
+  background-color: #111;
+  color: #FFF;
+  padding: 140px 0px 0px 0px;
+} */
+
+/* h1 {
+  background-color: rgba(256,256,256,.03);
+  background-image: -webkit-linear-gradient(top, #111, #0c0c0c);
+  background-image: -moz-linear-gradient(top, #111, #0c0c0c);
+  background-image: -ms-linear-gradient(top, #111, #0c0c0c);
+  background-image: -o-linear-gradient(top, #111, #0c0c0c);
+  font-size: 2em;
+  font-family: 'Amethysta', serif;
+  text-align: center;
+  line-height: 1.4em;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  white-space:nowrap;
+}
+
+span {
+  color: #000;
+  font-family: 'Caesar Dressing', cursive;
+  font-size: 5em;
+  text-transform: lowercase;
+  vertical-align: middle;
+  letter-spacing: .2em;
+} */
+
+.fire {
+  animation: fire 1s ease-in-out infinite alternate;
+}
+
+.burn {
+  animation: fire 0.65s ease-in-out infinite alternate;
+}
+
+@keyframes fire {
+  0% {
+    text-shadow: 0 0 2px #fefcc9, 1px -1px 3px #feec85, -2px -2px 4px #ffae34, 2px -4px 5px #ec760c,
+      -2px -6px 6px #cd4606, 0 -8px 7px #973716, 1px -9px 8px #451b0e;
+  }
+  100% {
+    text-shadow: 0 0 2px #fefcc9, 1px -1px 3px #fefcc9, -2px -2px 4px #feec85, 2px -4px 6px #ffae34,
+      -2px -5px 5px #ec760c, 0 -8px 8px #cd4606, 1px -9px 8px #973716;
+  }
 }
