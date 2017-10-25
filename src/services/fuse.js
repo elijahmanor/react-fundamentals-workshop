@@ -2,7 +2,7 @@ import { getItem, setItem } from "./localStorage";
 // import ElizaBot from "eliza";
 const faker = require("faker");
 const _ = require("lodash");
-
+const uniqueString = require("unique-string");
 // const eliza = new ElizaBot();
 
 export const getFuses = () =>
@@ -40,7 +40,7 @@ export const addFuse = ({ message, user, replyingTo }) =>
   new Promise(resolve => {
     getFuses().then(fuses => {
       const fuse = {
-        id: _.uniqueId(),
+        id: uniqueString(),
         fullName: user.name.formatted,
         avatar: user.thumbnailUrl,
         date: Date.now(),
@@ -73,7 +73,7 @@ const generateReply = fuse => {
 
 const generateFuses = () => {
   return _.times(10, n => ({
-    id: _.uniqueId(),
+    id: uniqueString(),
     fullName: faker.name.findName(),
     avatar: faker.internet.avatar(),
     date: faker.date.recent().toJSON(),

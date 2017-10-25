@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.5",
+    "datasets-liu-negative-opinion-words-en": "^1.0.0",
     "date-fns": "^2.0.0-alpha.2",
     "draft-js": "^0.10.3",
     "draft-js-export-html": "^1.2.0",
@@ -22,7 +23,8 @@
     "react-scripts": "1.0.14",
     "react-select": "^1.0.0-rc.10",
     "react-sound": "^0.8.0",
-    "spectacle": "^2.0.0"
+    "spectacle": "^2.0.0",
+    "unique-string": "^1.0.0"
   },
   "scripts": {
     "start": "react-app-rewired start",

@@ -3,6 +3,7 @@ import ReactModal from "react-modal";
 import PropTypes from "prop-types";
 import Button from "../Button/Button";
 import classNames from "classnames";
+import negativeWords from "datasets-liu-negative-opinion-words-en";
 
 import "./Reply.css";
 
@@ -12,7 +13,7 @@ const WARNING_FUSE_LENGTH = 200;
 class Reply extends Component {
   constructor(props) {
     super(props);
-    this.state = { fuse: props.fuse };
+    this.state = { fuse: props.fuse, isShaking: false };
   }
   componentDidMount() {
     this.setInputFocus();
@@ -35,15 +36,31 @@ class Reply extends Component {
   handleChange = e => {
     this.setState({ fuse: e.target.value });
   };
+  hasNegativeWords(message) {
+    return message.split(" ").some(word => negativeWords.includes(word));
+  }
   handleCompose = () => {
     const { user, replyingTo } = this.props;
-    this.props.onCompose({ message: this.state.fuse, user, replyingTo });
+    const { fuse: message } = this.state;
+
+    if (this.hasNegativeWords(message)) {
+      this.setState({ isShaking: true });
+      window.setTimeout(() => {
+        this.props.onCompose({ message, user, replyingTo });
+        this.setState({ isShaking: false });
+      }, 1000);
+    } else {
+      this.props.onCompose({ message, user, replyingTo });
+    }
   };
   render() {
     const { isOpen, onClose, replyingTo } = this.props;
-    const { fuse } = this.state;
+    const { fuse, isShaking } = this.state;
+    const modalClasses = classNames("Reply-modal", {
+      "is-shaking": isShaking
+    });
     const isOver = fuse.length > MAX_FUSE_LENGTH;
-    const classes = classNames("Reply-validation", {
+    const validationClasses = classNames("Reply-validation", {
       "Reply-validation--warn":
         fuse.length >= WARNING_FUSE_LENGTH && fuse.length <= MAX_FUSE_LENGTH,
       "Reply-validation--over": isOver
@@ -53,7 +70,7 @@ class Reply extends Component {
       <ReactModal
         isOpen={isOpen}
         contentLabel="Minimal Modal Example"
-        className="Reply-modal"
+        className={modalClasses}
         overlayClassName="Reply-overlay"
       >
         <header className="Reply-header">
@@ -72,7 +89,7 @@ class Reply extends Component {
           />
         </div>
         <div className="Reply-actions">
-          <div className={classes}>{MAX_FUSE_LENGTH - fuse.length}</div>
+          <div className={validationClasses}>{MAX_FUSE_LENGTH - fuse.length}</div>
           <Button disabled={!fuse.length || isOver} onClick={this.handleCompose}>
             Defuse
           </Button>
