@@ -31,7 +31,7 @@ const Fuse = ({ id, date, userName, fullName, avatar, email, message, bomb, onBo
 };
 
 Fuse.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   date: PropTypes.instanceOf(Date).isRequired,
   userName: PropTypes.string.isRequired,
   fullName: PropTypes.string.isRequired,

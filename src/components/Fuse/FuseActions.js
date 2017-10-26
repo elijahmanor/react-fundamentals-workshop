@@ -22,7 +22,7 @@ const randomExplosion = WrappedComponent =>
     };
     handleFinish = () => {
       this.setState({ isExploding: false });
-    }
+    };
     render() {
       const { isExploding } = this.state;
       const classes = classNames(this.className, {
@@ -34,7 +34,11 @@ const randomExplosion = WrappedComponent =>
       return isExploding ? (
         <span>
           {wrapped}
-          <Sound url={soundFile} playStatus={Sound.status.PLAYING} onFinishedPlaying={this.handleFinish} />
+          <Sound
+            url={soundFile}
+            playStatus={Sound.status.PLAYING}
+            onFinishedPlaying={this.handleFinish}
+          />
         </span>
       ) : (
         wrapped
@@ -73,8 +77,8 @@ const FuseActions = ({ id, user, bomb, onReply, onBomb }) => {
 };
 
 FuseActions.propTypes = {
-  id: PropTypes.number.isRequired,
-  userName: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
   bomb: PropTypes.bool.isRequired,
   onReply: PropTypes.func,
   onBomb: PropTypes.func

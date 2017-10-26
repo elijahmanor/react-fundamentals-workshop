@@ -1,7 +1,6 @@
 import React from "react";
 import classNames from "classnames";
 import Button from "../Button/Button";
-import logo from "../../images/overreact-logo.png";
 
 import "./Toolbar.css";
 
@@ -10,14 +9,15 @@ const Toolbar = ({ className, user, onNew }) => {
   return (
     <ul className={classes}>
       <li className="Toolbar-item Toolbar-item--logo">
-        <span class="fire">o</span>
-        <span class="burn">v</span>
-        <span class="burn">e</span>
-        <span class="fire">r</span>
-        <span class="fire">e</span>
-        <span class="burn">a</span>
-        <span class="burn">c</span>
-        <span class="fire">t</span>
+        <span className="fire">o</span>
+        <span className="burn">v</span>
+        <span className="burn">e</span>
+        <span className="fire">r</span>
+        <span className="burn">r</span>
+        <span className="fire">e</span>
+        <span className="burn">a</span>
+        <span className="burn">c</span>
+        <span className="fire">t</span>
       </li>
       <li className="Toolbar-item" onClick={onNew}>
         <Button>Fuse</Button>

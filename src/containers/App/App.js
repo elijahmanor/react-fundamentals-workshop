@@ -74,8 +74,9 @@ export default class App extends Component {
         <Toolbar className="App-toolbar" user={user} onNew={this.handleNew} />
         <UserInfo>
           {user => [
-            <Profile className="App-profile" user={user} />,
+            <Profile key="profile" className="App-profile" user={user} />,
             <Compose
+              key="compose"
               isOpen={showCompose}
               fuse={""}
               user={user}
@@ -83,6 +84,7 @@ export default class App extends Component {
               onClose={this.handleClose}
             />,
             <Reply
+              key="reply"
               isOpen={showReply}
               fuse={""}
               user={user}
