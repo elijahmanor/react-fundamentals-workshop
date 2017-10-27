@@ -8,6 +8,13 @@
   height: 5rem;
 }
 
+.Profile-reset {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+}
+
 .Profile-header {
   display: flex;
   padding: 1rem;

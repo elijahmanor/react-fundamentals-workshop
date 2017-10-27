@@ -7,18 +7,23 @@ export const getUser = () =>
   new Promise(resolve => {
     let user = getItem("user");
     if (!user) {
-      const email = window.prompt("What is your e-mail address?");
-      if (email) {
-        const hash = md5(email);
-        fetchJsonp(`https://www.gravatar.com/${hash}.json`)
-          .then(response => response.json())
-          .then(data => resolve(setItem("user", data.entry[0])))
-          .catch(() => resolve(setItem("user", generateUser())));
-      } else {
-        resolve(setItem("user", generateUser()));
-      }
+      return promptUser().then(user => resolve(user));
     } else {
       resolve(user);
+    }
+  });
+
+export const promptUser = () =>
+  new Promise(resolve => {
+    const email = window.prompt("What is your e-mail address?");
+    if (email) {
+      const hash = md5(email);
+      fetchJsonp(`https://www.gravatar.com/${hash}.json`)
+        .then(response => response.json())
+        .then(data => resolve(setItem("user", data.entry[0])))
+        .catch(() => resolve(setItem("user", generateUser())));
+    } else {
+      resolve(setItem("user", generateUser()));
     }
   });
 

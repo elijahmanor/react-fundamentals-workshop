@@ -1,4 +1,4 @@
-import { getUser } from "../../services/user";
+import * as api from "../../services/user";
 
 export const REQUEST_USER = "REQUEST_USER";
 export function requestUser() {
@@ -26,7 +26,18 @@ export function receiveUser(user) {
 export function fetchUser() {
   return dispatch => {
     dispatch(requestUser());
-    getUser()
+    api
+      .getUser()
+      .then(user => dispatch(receiveUser(user)))
+      .catch(error => dispatch(errorUser(error)));
+  };
+}
+
+export function resetUser() {
+  return dispatch => {
+    dispatch(requestUser());
+    api
+      .promptUser()
       .then(user => dispatch(receiveUser(user)))
       .catch(error => dispatch(errorUser(error)));
   };

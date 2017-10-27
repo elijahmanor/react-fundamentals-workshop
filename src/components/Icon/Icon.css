@@ -1,0 +1,75 @@
+.Icon {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-right: 1rem;
+}
+
+.Icon .fa.is-active {
+  color: #ed1b2e;
+}
+
+.Icon .fa.is-explode {
+  animation: explode 1s 1 linear;
+}
+
+@keyframes explode {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(-15deg);
+  }
+
+  10% {
+    opacity: 1;
+    transform: scale(1) rotate(15deg);
+  }
+
+  20% {
+    opacity: 0.8;
+    transform: scale(1.2) rotate(-18deg);
+  }
+
+  30% {
+    opacity: 0.8;
+    transform: scale(1.2) rotate(18deg);
+  }
+
+  40% {
+    opacity: 0.6;
+    transform: scale(1.4) rotate(-22deg);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.4) rotate(22deg);
+  }
+
+  60% {
+    opacity: 0.8;
+    transform: scale(1.6) rotate(-18deg);
+  }
+
+  70% {
+    opacity: 0.8;
+    transform: scale(1.6) rotate(18deg);
+  }
+
+  80% {
+    opacity: 1;
+    transform: scale(1.8) rotate(-12deg);
+  }
+
+  90% {
+    opacity: 1;
+    transform: scale(1.8) rotate(12deg);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
