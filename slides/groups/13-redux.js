@@ -27,7 +27,11 @@ export default (theme, images) => [
     notes="You can even put notes on your slide. How awesome is that?"
   >
     <Heading textColor="quartenary" caps fit>
-      Redux
+      Redux https://css-tricks.com/learning-react-redux/
+      https://codepen.io/stowball/post/a-dummy-s-guide-to-redux-and-thunk-in-react
+      https://github.com/gaearon/redux-thunk http://redux.js.org/docs/basics/Actions.html
+      http://redux.js.org/docs/advanced/AsyncActions.html
+      https://github.com/zalmoxisus/redux-devtools-extension#usage
     </Heading>
   </Slide>
 ];
