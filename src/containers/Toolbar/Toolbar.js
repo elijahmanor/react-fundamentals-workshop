@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Toolbar from "../../components/Toolbar/Toolbar";
 import Compose from "../../components/Compose/Compose";
+import { postFuse } from "../../redux/actions/fuse-actions";
 import { connect } from "react-redux";
 
 class ToolbarContainer extends Component {
@@ -39,7 +40,7 @@ class ToolbarContainer extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     onCompose({ message, user }) {
-      console.log("ToolbarContainer", "onCompose", { message, user });
+      dispatch(postFuse({ message, user }));
     }
   };
 };
