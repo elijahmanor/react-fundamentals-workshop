@@ -34,22 +34,24 @@ body {
   font-size: 1.4rem;
 }
 
-@media only screen and (min-width: 426px) {
+@media only screen and (min-width: 600px) {
   .App {
     grid-template-areas: "toolbar toolbar" "profile list" "ads     list" "footer  list";
     grid-template-columns: minmax(200px, 1fr) 2fr;
+    /* grid-template-rows: auto . 225px auto; */
   }
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 800px) {
   .App {
-    grid-template-areas: "toolbar toolbar toolbar" "profile list    ads" "profile list    footer"
+    grid-template-areas: "toolbar toolbar toolbar" "profile list    ads" ".       list    footer"
       ".       list    ." ".       list    .";
     grid-template-columns: minmax(200px, 1fr) 2fr 1fr;
+    /* grid-template-rows: auto auto 225px auto; */
   }
 }
 
-@media only screen and (min-width: 1001px) {
+@media only screen and (min-width: 1000px) {
   .App {
     margin: auto;
   }
