@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 
 import "./Toolbar.css";
 
-const Toolbar = ({ className, user, onNew }) => {
+const Toolbar = ({ className, onNew }) => {
   const classes = classNames("Toolbar", className);
   return (
     <ul className={classes}>

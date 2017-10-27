@@ -1,9 +1,19 @@
 import { getItem, setItem } from "./localStorage";
+import faker from "faker";
+import _ from "lodash";
+import uniqueString from "unique-string";
+// import store from "../path/to/store";
 // import ElizaBot from "eliza";
-const faker = require("faker");
-const _ = require("lodash");
-const uniqueString = require("unique-string");
 // const eliza = new ElizaBot();
+
+// export const bootstrap = () => {
+//   getFuses().then(fuses => {
+//     store.dispatch({
+//       type: "FUSE_LIST_SUCCESS",
+//       fuses
+//     });
+//   });
+// };
 
 export const getFuses = () =>
   new Promise(resolve => {
@@ -28,7 +38,7 @@ export const updateFuse = fuse =>
       const item = fuses.find(f => f.id === fuse.id);
       Object.assign(item, fuse);
       setItem("fuses", fuses);
-      resolve();
+      resolve(fuse);
     });
   });
 
@@ -52,7 +62,7 @@ export const addFuse = ({ message, user, replyingTo }) =>
       };
       setItem("fuses", [...fuses, fuse]);
       // window.setTimeout(generateReply.bind(null, fuse), _.random(10000));
-      resolve();
+      resolve(fuse);
     });
   });
 

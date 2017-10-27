@@ -23,6 +23,8 @@
     "react-scripts": "1.0.14",
     "react-select": "^1.0.0-rc.10",
     "react-sound": "^0.8.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.2.0",
     "spectacle": "^2.0.0",
     "unique-string": "^1.0.0"
   },
