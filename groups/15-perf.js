@@ -27,7 +27,7 @@ export default (theme, images) => [
     notes="You can even put notes on your slide. How awesome is that?"
   >
     <Heading textColor="quartenary" caps fit>
-      Performance
+      Performance https://reactjs.org/docs/optimizing-performance.html
     </Heading>
   </Slide>
 ];
