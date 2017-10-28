@@ -1,20 +1,19 @@
 import React from "react";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 import { get } from "lodash";
 import Icon from "../Icon/Icon";
 
 import "./Profile.css";
 
-export default ({ className, user = {}, onReset }) => {
+const Profile = ({ className, user = {}, onReset }) => {
   const classes = classNames("Profile", className);
-  const fullName = get(user, "name.formatted") || user.displayName;
+  const fullName = /*get(user, "name.formatted") ||*/ user.displayName;
 
   return (
     <div className={classes}>
       <div className="Profile-background" />
-      <Icon className="Profile-reset" type="refresh" onClick={onReset}>
-        Reset
-      </Icon>
+      <Icon className="Profile-reset" type="refresh" onClick={onReset} />
       <header className="Profile-header">
         <img className="Profile-avatar" src={user.thumbnailUrl} alt={fullName} />
         <div className="Profile-name">
@@ -26,3 +25,21 @@ export default ({ className, user = {}, onReset }) => {
     </div>
   );
 };
+
+Profile.propTypes = {
+  className: PropTypes.string,
+  user: PropTypes.shape({
+    thumbnailUrl: PropTypes.string,
+    name: PropTypes.object,
+    displayName: PropTypes.string,
+    preferredUsername: PropTypes.string,
+    aboutMe: PropTypes.string
+  }),
+  onReset: PropTypes.func
+};
+
+Profile.defaultProps = {
+  onReset() {}
+};
+
+export default Profile;

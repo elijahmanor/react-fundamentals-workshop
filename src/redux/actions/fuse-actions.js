@@ -5,9 +5,9 @@ export function requestFuses() {
   return { type: REQUEST_FUSES };
 }
 
-export const ERROR_FUSES = "ERROR_FUSES";
+export const ERROR_FUSE = "ERROR_FUSE";
 export function errorFuse(error) {
-  return { type: ERROR_FUSES, error };
+  return { type: ERROR_FUSE, error };
 }
 
 export const RECEIVE_FUSES = "RECEIVE_FUSES";
@@ -28,7 +28,7 @@ export function addFuse(fuse) {
 export function fetchFuses() {
   return dispatch => {
     dispatch(requestFuses());
-    api
+    return api
       .getFuses()
       .then(fuses => dispatch(receiveFuses(fuses)))
       .catch(error => dispatch(errorFuse(error)));
@@ -38,7 +38,7 @@ export function fetchFuses() {
 export function putFuse(fuse) {
   return dispatch => {
     dispatch(requestFuses());
-    api
+    return api
       .updateFuse(fuse)
       .then(fuse => dispatch(updateFuse(fuse)))
       .catch(error => dispatch(errorFuse(error)));
@@ -48,7 +48,7 @@ export function putFuse(fuse) {
 export function postFuse(fuse) {
   return dispatch => {
     dispatch(requestFuses());
-    api
+    return api
       .addFuse(fuse)
       .then(fuse => dispatch(addFuse(fuse)))
       .catch(error => dispatch(errorFuse(error)));

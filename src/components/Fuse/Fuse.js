@@ -6,7 +6,19 @@ import FuseActions from "./FuseActions";
 
 import "./Fuse.css";
 
-const Fuse = ({ id, date, userName, fullName, avatar, email, message, bomb, onBomb, onReply }) => {
+const Fuse = ({
+  id,
+  date,
+  userName,
+  fullName,
+  avatar,
+  email,
+  message,
+  replyingTo,
+  bomb,
+  onBomb,
+  onReply
+}) => {
   const url = avatar || `https://www.gravatar.com/avatar/${md5(email)}`;
   const user = { userName, fullName };
 
@@ -23,6 +35,7 @@ const Fuse = ({ id, date, userName, fullName, avatar, email, message, bomb, onBo
             {formatDistanceStrict(date, new Date())}
           </div>
         </header>
+        {replyingTo && <div className="Fuse-replyingTo">Replying to @{replyingTo.userName}</div>}
         <div className="Fuse-message">{message}</div>
         <FuseActions id={id} user={user} bomb={bomb} onBomb={onBomb} onReply={onReply} />
       </article>
@@ -39,8 +52,8 @@ Fuse.propTypes = {
   email: PropTypes.string,
   message: PropTypes.string.isRequired,
   bomb: PropTypes.bool.isRequired,
-  onBomb: PropTypes.func.isRequired,
-  onReply: PropTypes.func.isRequired
+  onBomb: PropTypes.func,
+  onReply: PropTypes.func
 };
 
 React.defaultProps = {

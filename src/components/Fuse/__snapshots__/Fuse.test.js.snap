@@ -48,20 +48,21 @@ exports[`Fuse renders with an avatar 1`] = `
       className="FuseActions"
     >
       <button
-        className="FuseActions-action"
+        className="Icon"
         onClick={[Function]}
       >
         <i
           aria-hidden="true"
-          className="fa fa-comment-o"
+          className="FuseActions-action fa fa-comment-o"
         />
       </button>
       <button
-        className="FuseActions-action is-active"
+        className="Icon"
+        onClick={[Function]}
       >
         <i
           aria-hidden="true"
-          className="fa fa-heart-o"
+          className="fa fa-bomb"
         />
       </button>
     </div>
@@ -117,20 +118,21 @@ exports[`Fuse renders with an email 1`] = `
       className="FuseActions"
     >
       <button
-        className="FuseActions-action"
+        className="Icon"
         onClick={[Function]}
       >
         <i
           aria-hidden="true"
-          className="fa fa-comment-o"
+          className="FuseActions-action fa fa-comment-o"
         />
       </button>
       <button
-        className="FuseActions-action is-active"
+        className="Icon"
+        onClick={[Function]}
       >
         <i
           aria-hidden="true"
-          className="fa fa-heart-o"
+          className="fa fa-bomb"
         />
       </button>
     </div>

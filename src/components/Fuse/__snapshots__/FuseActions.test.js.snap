@@ -1,48 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FuseActions renders favorited 1`] = `
+exports[`FuseActions renders bombed 1`] = `
 <div
   className="FuseActions"
 >
   <button
-    className="FuseActions-action"
+    className="Icon"
     onClick={[Function]}
   >
     <i
       aria-hidden="true"
-      className="fa fa-comment-o"
+      className="FuseActions-action fa fa-comment-o"
     />
   </button>
   <button
-    className="FuseActions-action is-active"
+    className="Icon"
+    onClick={[Function]}
   >
     <i
       aria-hidden="true"
-      className="fa fa-heart is-active"
+      className="fa fa-bomb is-active"
     />
   </button>
 </div>
 `;
 
-exports[`FuseActions renders unfavorited 1`] = `
+exports[`FuseActions renders unbombed 1`] = `
 <div
   className="FuseActions"
 >
   <button
-    className="FuseActions-action"
+    className="Icon"
     onClick={[Function]}
   >
     <i
       aria-hidden="true"
-      className="fa fa-comment-o"
+      className="FuseActions-action fa fa-comment-o"
     />
   </button>
   <button
-    className="FuseActions-action is-active"
+    className="Icon"
+    onClick={[Function]}
   >
     <i
       aria-hidden="true"
-      className="fa fa-heart-o"
+      className="fa fa-bomb"
     />
   </button>
 </div>

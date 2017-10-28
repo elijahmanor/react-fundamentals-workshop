@@ -2,6 +2,7 @@ import { getItem, setItem } from "./localStorage";
 import faker from "faker";
 import md5 from "md5";
 import fetchJsonp from "fetch-jsonp";
+import { get } from "lodash";
 
 export const getUser = () =>
   new Promise(resolve => {
@@ -20,7 +21,11 @@ export const promptUser = () =>
       const hash = md5(email);
       fetchJsonp(`https://www.gravatar.com/${hash}.json`)
         .then(response => response.json())
-        .then(data => resolve(setItem("user", data.entry[0])))
+        .then(data => {
+          const user = data.entry[0];
+          user.displayName = get(user, "name.formatted", user.displayName);
+          resolve(setItem("user", user));
+        })
         .catch(() => resolve(setItem("user", generateUser())));
     } else {
       resolve(setItem("user", generateUser()));

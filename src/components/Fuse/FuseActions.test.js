@@ -5,15 +5,17 @@ import renderer from "react-test-renderer";
 import FuseActions from "./FuseActions";
 
 describe("FuseActions", () => {
+  const user = { fullName: "John Smith" };
+
   beforeEach(() => {});
 
-  it("renders unfavorited", () => {
-    const tree = renderer.create(<FuseActions id={1} userName="johnsmith" favorite={false} />);
+  it("renders unbombed", () => {
+    const tree = renderer.create(<FuseActions id={"1"} user={user} bomb={false} />);
     expect(tree).toMatchSnapshot();
   });
 
-  it("renders favorited", () => {
-    const tree = renderer.create(<FuseActions id={1} userName="johnsmith" favorite={true} />);
+  it("renders bombed", () => {
+    const tree = renderer.create(<FuseActions id={"1"} user={user} bomb={true} />);
     expect(tree).toMatchSnapshot();
   });
 });
