@@ -82,10 +82,11 @@ const generateReply = fuse => {
 };
 
 const generateFuses = () => {
+  console.log(_.times(2, faker.internet.avatar));
   return _.times(10, n => ({
     id: uniqueString(),
     fullName: faker.name.findName(),
-    avatar: faker.internet.avatar(),
+    avatar: _.times(2, faker.internet.avatar).find(avatar => !avatar.includes("falling_soul")),
     date: faker.date.recent().toJSON(),
     userName: faker.name.firstName().toLowerCase() + faker.name.lastName().toLowerCase(),
     email: faker.internet.email(),

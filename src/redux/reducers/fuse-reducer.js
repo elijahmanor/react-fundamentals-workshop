@@ -3,9 +3,9 @@ import {
   RECEIVE_FUSES,
   UPDATE_FUSE,
   ADD_FUSE,
-  ERROR_FUSES
+  ERROR_FUSE
 } from "../actions/fuse-actions";
-import _ from "lodash";
+import { orderBy } from "lodash";
 
 const fuseReducer = (
   state = {
@@ -26,14 +26,14 @@ const fuseReducer = (
       return Object.assign({}, state, {
         isFetching: false,
         error: null,
-        fuses: _.orderBy(action.fuses, ["date"], ["desc"]),
-        lastUpdated: +new Date()
+        fuses: orderBy(action.fuses, ["date"], ["desc"]),
+        lastUpdated: Date.now()
       });
     case UPDATE_FUSE:
       return Object.assign({}, state, {
         isFetching: false,
         error: null,
-        fuses: _.orderBy(
+        fuses: orderBy(
           state.fuses.map(fuse => {
             if (fuse.id === action.fuse.id) {
               return { ...fuse, ...action.fuse };
@@ -43,16 +43,16 @@ const fuseReducer = (
           ["date"],
           ["desc"]
         ),
-        lastUpdated: +new Date()
+        lastUpdated: Date.now()
       });
     case ADD_FUSE:
       return Object.assign({}, state, {
         isFetching: false,
         error: null,
-        fuses: _.orderBy([...state.fuses, action.fuse], ["date"], ["desc"]),
-        lastUpdated: +new Date()
+        fuses: orderBy([...state.fuses, action.fuse], ["date"], ["desc"]),
+        lastUpdated: Date.now()
       });
-    case ERROR_FUSES:
+    case ERROR_FUSE:
       return Object.assign({}, state, {
         isFetching: false,
         error: action.error

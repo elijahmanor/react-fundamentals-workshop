@@ -30,16 +30,23 @@
 
 .Profile-name {
   width: 100%;
+  overflow: hidden;
 }
 
 .Profile-fullName {
   font-size: 1.6rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Profile-userName {
   color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Profile-bio {

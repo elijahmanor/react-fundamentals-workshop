@@ -22,7 +22,7 @@ const userReducer = (
         isFetching: false,
         error: null,
         user: action.user,
-        lastUpdated: +new Date()
+        lastUpdated: Date.now()
       });
     case ERROR_USER:
       return Object.assign({}, state, {

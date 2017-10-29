@@ -26,7 +26,7 @@ export function receiveUser(user) {
 export function fetchUser() {
   return dispatch => {
     dispatch(requestUser());
-    api
+    return api
       .getUser()
       .then(user => dispatch(receiveUser(user)))
       .catch(error => dispatch(errorUser(error)));
@@ -36,7 +36,7 @@ export function fetchUser() {
 export function resetUser() {
   return dispatch => {
     dispatch(requestUser());
-    api
+    return api
       .promptUser()
       .then(user => dispatch(receiveUser(user)))
       .catch(error => dispatch(errorUser(error)));
