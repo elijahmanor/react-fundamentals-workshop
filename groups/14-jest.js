@@ -27,7 +27,8 @@ export default (theme, images) => [
     notes="You can even put notes on your slide. How awesome is that?"
   >
     <Heading textColor="quartenary" caps fit>
-      Jest
+      Jest http://facebook.github.io/jest/docs/en/expect.html
+      https://github.com/sapegin/jest-cheat-sheet http://redux.js.org/docs/recipes/WritingTests.html
     </Heading>
   </Slide>
 ];
