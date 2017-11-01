@@ -23,7 +23,8 @@ class Compose extends Component {
     this.setInputFocus();
   }
   componentWillReceiveProps(nextProps) {
-    if (this.props.fuse !== nextProps.fuse) {
+    console.log("componentWillReceiveProps", { nextProps, props: this.props });
+    if (this.props.isOpen !== nextProps.isOpen) {
       this.setState({
         fuse: nextProps.fuse
       });
@@ -91,7 +92,8 @@ Compose.propTypes = {
 Compose.defaultProps = {
   isOpen: false,
   onCompose() {},
-  onClose() {}
+  onClose() {},
+  fuse: ""
 };
 
 export default Compose;

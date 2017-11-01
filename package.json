@@ -15,7 +15,9 @@
     "md5": "2.2.1",
     "mousetrap": "^1.6.1",
     "normalize.css": "3.0.3",
+    "polished": "^1.8.1",
     "react": "^16.0.0",
+    "react-app-rewire-styled-components": "^3.0.0",
     "react-aux": "^1.1.0",
     "react-contenteditable": "^2.0.5",
     "react-dom": "^16.0.0",
@@ -26,6 +28,7 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
     "spectacle": "^2.0.0",
+    "styled-components": "^2.2.3",
     "unique-string": "^1.0.0"
   },
   "scripts": {
@@ -38,12 +41,10 @@
     "storybook:build": "build-storybook -s public",
     "slides": "cross-env NODE_ENV=development node slides/server.js",
     "slides:clean": "rimraf slides/dist",
-    "slides:build":
-      "npm run slides:clean && cross-env NODE_ENV=production webpack --display-error-details --config slides/webpack.config.production.js",
+    "slides:build": "npm run slides:clean && cross-env NODE_ENV=production webpack --display-error-details --config slides/webpack.config.production.js",
     "gh-pages": "git subtree push --prefix slides origin gh-pages",
     "gh-pages:force": "git push origin `git subtree split --prefix slides master`:gh-pages --force",
-    "gh-pages:refresh":
-      "git push origin :gh-pages && git subtree push --prefix slides origin gh-pages"
+    "gh-pages:refresh": "git push origin :gh-pages && git subtree push --prefix slides origin gh-pages"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.12",
@@ -83,8 +84,19 @@
     "webpack-merge": "^4.1.0"
   },
   "jest": {
-    "collectCoverageFrom": ["src/**/*.js"],
-    "coveragePathIgnorePatterns": ["src/stories/", "src/services/"],
-    "coverageReporters": ["json", "lcov", "text", "text-summary", "html"]
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "src/stories/",
+      "src/services/"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "text-summary",
+      "html"
+    ]
   }
 }

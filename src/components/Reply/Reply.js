@@ -22,7 +22,7 @@ class Reply extends Component {
     this.setInputFocus();
   }
   componentWillReceiveProps(nextProps) {
-    if (this.props.fuse !== nextProps.fuse) {
+    if (this.props.isOpen !== nextProps.isOpen) {
       this.setState({
         fuse: nextProps.fuse
       });

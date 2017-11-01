@@ -10,9 +10,6 @@ import Ads from "../../components/Ads/Ads";
 import Footer from "../../components/Footer/Footer";
 
 import { fetchUser, resetUser } from "../../redux/actions/user-actions";
-
-// http://notjoshmiller.com/ajax-polling-in-react-with-redux/
-
 import { connect } from "react-redux";
 
 import "../../index.css";

@@ -8,14 +8,14 @@
   --color-button-bg--dark: #7fa33d;
   --color-button-bg--darker: #678530;
   --color-button-bg--darkest: #50612d;
-  /* --color-button-bg: #d9534f;
-  --color-button-bg--dark: #7fa33d;
-  --color-button-bg--darker: #678530;
-  --color-button-bg--darkest: #50612d; */
 }
 
-html {
+html,
+body {
   box-sizing: border-box;
+  background-color: var(--color-body-bg);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10px;
 }
 
 *,
