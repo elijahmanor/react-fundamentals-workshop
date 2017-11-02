@@ -30,7 +30,6 @@ stories.addWithJSX(
       )}
       message={text("message", "This is a test fuse")}
       bomb={boolean("bomb", false)}
-      onBomb={action("onBomb")}
     />
   ))
 );
@@ -49,7 +48,6 @@ stories.addWithJSX(
       email={text("email", "john@outlook.com")}
       message={text("message", "This is another test fuse")}
       bomb={boolean("bomb", true)}
-      onBomb={action("onBomb")}
     />
   ))
 );

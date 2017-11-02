@@ -5,26 +5,20 @@ import Icon from "../Icon/Icon";
 
 import "./Fuse.css";
 
-const FuseActions = ({ id, bomb, onBomb }) => {
-  const handleClick = ({ isActive }) => {
-    onBomb({ id, bomb: isActive });
-  };
+const FuseActions = ({ id, bomb }) => {
   return (
     <div className="FuseActions">
       <Icon type="comment-o" className="FuseActions-action" />
-      <Icon type="bomb" className="FuseActions-action" isActive={bomb} onClick={handleClick} />
+      <Icon type="bomb" className="FuseActions-action" isActive={bomb} />
     </div>
   );
 };
 
 FuseActions.propTypes = {
   id: PropTypes.string.isRequired,
-  bomb: PropTypes.bool.isRequired,
-  onBomb: PropTypes.func
+  bomb: PropTypes.bool.isRequired
 };
 
-FuseActions.defaultProps = {
-  onBomb() {}
-};
+FuseActions.defaultProps = {};
 
 export default FuseActions;

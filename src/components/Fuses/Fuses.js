@@ -5,24 +5,17 @@ import Fuse from "../Fuse/Fuse";
 
 import "./Fuses.css";
 
-const Fuses = ({ className, fuses, onBomb }) => {
+const Fuses = ({ className, fuses }) => {
   const classes = classNames("Fuses", className);
 
-  return (
-    <div className={classes}>
-      {fuses.map(fuse => <Fuse key={fuse.id} onBomb={onBomb} {...fuse} />)}
-    </div>
-  );
+  return <div className={classes}>{fuses.map(fuse => <Fuse key={fuse.id} {...fuse} />)}</div>;
 };
 
 Fuses.propTypes = {
   className: PropTypes.string,
-  fuses: PropTypes.array,
-  onBomb: PropTypes.func
+  fuses: PropTypes.array
 };
 
-Fuses.defaultProps = {
-  onBomb() {}
-};
+Fuses.defaultProps = {};
 
 export default Fuses;
