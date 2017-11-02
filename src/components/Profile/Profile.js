@@ -4,7 +4,7 @@ import { get } from "lodash";
 
 import "./Profile.css";
 
-export default ({ className, user }) => {
+const Profile = ({ className, user }) => {
   const classes = classNames("Profile", className);
   const fullName = get(user, "name.formatted") || user.displayName;
 
@@ -22,3 +22,5 @@ export default ({ className, user }) => {
     </div>
   );
 };
+
+export default Profile;
