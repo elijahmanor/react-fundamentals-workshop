@@ -62,15 +62,6 @@ const theme = createTheme(
   }
 );
 
-/*
-https://github.com/elijahmanor/elijahmanor.github.com/tree/master/talks/react-to-the-future/src/md
-require('!raw!../../md/gotchas.md')
-require('!raw!../../md/flux.md')
-require('!raw!../../md/node-modules.md')
-require('!raw!../../md/npm-scripts.md')
-require('!raw!../../md/resources.md')
-*/
-
 const Groups = {
   start: require("../groups/00-start.js").default,
   what: require("../groups/01-what.js").default,
@@ -228,8 +219,7 @@ let selectedGroups = window.localStorage.getItem("selectedGroups");
 if (selectedGroups) {
   selectedGroups = JSON.parse(selectedGroups);
 } else {
-  selectedGroups = ["start", "what", "lab01", "comps"];
-  // groupOptions;
+  selectedGroups = ["comps", "props", "lab02"];
 }
 
 export default class Presentation extends React.Component {
