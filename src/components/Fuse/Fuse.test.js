@@ -102,43 +102,32 @@ describe("Fuse", () => {
     });
   });
 
-  describe("FuseActions", () => {
-    it("should render FuseActions", () => {
-      const source = {
-        id: "1",
-        user: {},
-        bomb: false,
-        onBomb() {},
-        onReply() {}
-      };
-      component = render(source);
-      const element = component.find("FuseActions");
-      expect(element.props()).toMatchObject(source);
-    });
-  });
-
-  describe("replyingTo", () => {
+  describe("actions", () => {
     let element;
 
     beforeEach(() => {
       component = render();
-      element = component.find(".Fuse-replyingTo");
+      element = component.find(".Fuse-actions");
     });
 
-    it("should not render if replyingTo is not passed as a prop", () => {
-      expect(element.length).toBe(0);
+    it("should have two buttons", () => {
+      expect(element.find(".Fuse-action").length).toBe(2);
     });
 
-    it("should render if replyingTo is passed as a prop", () => {
-      component = render({ replyingTo: { userName: "johnsmith" } });
-      element = component.find(".Fuse-replyingTo");
-      expect(element.length).toBe(1);
+    it("should render a comment button", () => {
+      element = component.find(".Fuse-action i").first();
+      expect(element.prop("className").includes("fa-comment-o")).toBe(true);
     });
 
-    it("should render the replyingTo userName value when provided", () => {
-      component = render({ replyingTo: { userName: "johnsmith" } });
-      element = component.find(".Fuse-replyingTo");
-      expect(element.text()).toBe("Replying to @johnsmith");
+    it("should render a bomb button", () => {
+      element = component.find(".Fuse-action i").last();
+      expect(element.prop("className").includes("fa-bomb")).toBe(true);
+    });
+
+    it("should add is-active to bomb if prop is true", () => {
+      component = render({ bomb: true });
+      element = component.find(".Fuse-action i").last();
+      expect(element.prop("className").includes("is-active")).toBe(true);
     });
   });
 });

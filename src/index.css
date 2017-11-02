@@ -10,12 +10,15 @@
   --color-button-bg--darkest: #50612d;
 }
 
-html,
-body {
+html {
   box-sizing: border-box;
+  font-size: 10px;
   background-color: var(--color-body-bg);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 10px;
+}
+
+body {
+  font-size: 1.4rem;
 }
 
 *,

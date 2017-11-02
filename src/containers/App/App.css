@@ -1,10 +1,3 @@
-html,
-body {
-  background-color: var(--color-body-bg);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 10px;
-}
-
 .App-toolbar {
   grid-area: toolbar;
 }
