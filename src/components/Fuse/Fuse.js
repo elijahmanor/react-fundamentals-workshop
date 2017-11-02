@@ -2,16 +2,13 @@ import React from "react";
 import md5 from "md5";
 import { format, formatDistanceStrict } from "date-fns";
 import PropTypes from "prop-types";
-import classNames from "classnames";
+
+import FuseActions from "./FuseActions";
 
 import "./Fuse.css";
 
-const Fuse = ({ id, date, userName, fullName, avatar, email, message, bomb }) => {
+const Fuse = ({ id, date, userName, fullName, avatar, email, message, bomb, onBomb }) => {
   const url = avatar || `https://www.gravatar.com/avatar/${md5(email)}`;
-  const user = { userName, fullName };
-  const classes = classNames("fa fa-bomb", {
-    "is-active": bomb
-  });
 
   return (
     <div className="Fuse">
@@ -27,14 +24,7 @@ const Fuse = ({ id, date, userName, fullName, avatar, email, message, bomb }) =>
           </div>
         </header>
         <div className="Fuse-message">{message}</div>
-        <div className="Fuse-actions">
-          <button className="Fuse-action">
-            <i className="fa fa-comment-o" aria-hidden="true" />
-          </button>
-          <button className="Fuse-action">
-            <i className={classes} aria-hidden="true" />
-          </button>
-        </div>
+        <FuseActions id={id} bomb={bomb} onBomb={onBomb} />
       </article>
     </div>
   );
@@ -48,7 +38,12 @@ Fuse.propTypes = {
   avatar: PropTypes.string,
   email: PropTypes.string,
   message: PropTypes.string.isRequired,
-  bomb: PropTypes.bool.isRequired
+  bomb: PropTypes.bool.isRequired,
+  onBomb: PropTypes.func.isRequired
+};
+
+Fuse.defaultProps = {
+  onBomb() {}
 };
 
 export default Fuse;

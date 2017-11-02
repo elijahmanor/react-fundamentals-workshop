@@ -1,9 +1,7 @@
 import { getItem, setItem } from "./localStorage";
-// import ElizaBot from "eliza";
 const faker = require("faker");
 const _ = require("lodash");
 const uniqueString = require("unique-string");
-// const eliza = new ElizaBot();
 
 export const getFuses = () =>
   new Promise(resolve => {
@@ -51,25 +49,9 @@ export const addFuse = ({ message, user, replyingTo }) =>
         replyingTo
       };
       setItem("fuses", [...fuses, fuse]);
-      // window.setTimeout(generateReply.bind(null, fuse), _.random(10000));
       resolve();
     });
   });
-
-const generateReply = fuse => {
-  // https://s3.amazonaws.com/uifaces/faces/twitter/katiemdaly/128.jpg
-  const message = ""; // eliza.transform(fuse.message);
-  const user = {
-    name: { formatted: "Eliza" },
-    thumbnailUrl: "https://s3.amazonaws.com/uifaces/faces/twitter/cynthiasavard/128.jpg",
-    preferredUsername: "eliza",
-    email: ""
-  };
-  if (fuse.replyingTo) {
-  } else {
-  }
-  addFuse({ message, user });
-};
 
 const generateFuses = () => {
   return _.times(10, n => ({

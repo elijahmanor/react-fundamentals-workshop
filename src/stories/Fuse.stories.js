@@ -3,6 +3,7 @@ import { storiesOf, setAddon } from "@storybook/react";
 import { withNotes } from "@storybook/addon-notes";
 import { withKnobs, text, date, boolean } from "@storybook/addon-knobs";
 import JSXAddon from "storybook-addon-jsx";
+import { action } from "@storybook/addon-actions";
 
 import Fuse from "../components/Fuse/Fuse";
 
@@ -19,7 +20,7 @@ stories.addWithJSX(
     The avatar will be populated from an image URL (no email provided)`
   )(() => (
     <Fuse
-      id={42}
+      id={"42"}
       date={date("date", now)}
       userName={text("userName", "johnsmith")}
       fullName={text("fullName", "John Smith")}
@@ -29,6 +30,7 @@ stories.addWithJSX(
       )}
       message={text("message", "This is a test fuse")}
       bomb={boolean("bomb", false)}
+      onBomb={action("onBomb")}
     />
   ))
 );
@@ -40,13 +42,14 @@ stories.addWithJSX(
     The avatar will be populated from an email address via the Gravatar API`
   )(() => (
     <Fuse
-      id={42}
+      id={"42"}
       date={date("date", now)}
       userName={text("userName", "johnsmith")}
       fullName={text("fullName", "John Smith")}
       email={text("email", "john@outlook.com")}
       message={text("message", "This is another test fuse")}
       bomb={boolean("bomb", true)}
+      onBomb={action("onBomb")}
     />
   ))
 );

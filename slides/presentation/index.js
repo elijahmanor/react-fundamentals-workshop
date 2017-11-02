@@ -219,7 +219,7 @@ let selectedGroups = window.localStorage.getItem("selectedGroups");
 if (selectedGroups) {
   selectedGroups = JSON.parse(selectedGroups);
 } else {
-  selectedGroups = ["state", "life", "lists", "lab03"];
+  selectedGroups = ["events", "lab04"];
 }
 
 export default class Presentation extends React.Component {

@@ -3,12 +3,15 @@ import { shallow, mount } from "enzyme";
 import ReactDOM from "react-dom";
 import renderer from "react-test-renderer";
 import { format, formatDistanceStrict } from "date-fns";
+import FuseActions from "./FuseActions";
+
 import Fuse from "./Fuse";
 
 jest.mock("date-fns", () => ({
   format: jest.fn(() => "formatted-date"),
   formatDistanceStrict: jest.fn()
 }));
+jest.mock("./FuseActions", () => "FuseActions");
 
 describe("Fuse", () => {
   let component;
@@ -102,32 +105,16 @@ describe("Fuse", () => {
     });
   });
 
-  describe("actions", () => {
-    let element;
-
-    beforeEach(() => {
-      component = render();
-      element = component.find(".Fuse-actions");
-    });
-
-    it("should have two buttons", () => {
-      expect(element.find(".Fuse-action").length).toBe(2);
-    });
-
-    it("should render a comment button", () => {
-      element = component.find(".Fuse-action i").first();
-      expect(element.prop("className").includes("fa-comment-o")).toBe(true);
-    });
-
-    it("should render a bomb button", () => {
-      element = component.find(".Fuse-action i").last();
-      expect(element.prop("className").includes("fa-bomb")).toBe(true);
-    });
-
-    it("should add is-active to bomb if prop is true", () => {
-      component = render({ bomb: true });
-      element = component.find(".Fuse-action i").last();
-      expect(element.prop("className").includes("is-active")).toBe(true);
+  describe("FuseActions", () => {
+    it("should render FuseActions", () => {
+      const source = {
+        id: "1",
+        bomb: false,
+        onBomb() {}
+      };
+      component = render(source);
+      const element = component.find("FuseActions");
+      expect(element.props()).toMatchObject(source);
     });
   });
 });

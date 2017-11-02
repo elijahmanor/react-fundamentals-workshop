@@ -28,20 +28,19 @@
 }
 
 .Fuse-message {
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
 }
 
-.Fuse-action {
+.FuseActions-action {
   background: none;
   color: inherit;
   border: none;
   padding: 0;
-  font: inherit;
   cursor: pointer;
   outline: inherit;
   margin-right: 1rem;
 }
 
-.Fuse-action .fa.is-active {
+.FuseActions-action .fa.is-active {
   color: #ed1b2e;
 }
