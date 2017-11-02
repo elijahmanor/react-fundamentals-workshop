@@ -22,43 +22,18 @@ import {
 
 export default (theme, images) => (
   <SlideSet key="what">
-    <Slide
-      id="what-where-why"
-      transition={["slide"]}
-      bgColor="black"
-      notes="You can even put notes on your slide. How awesome is that?"
-    >
-      <Heading textColor="quartenary" caps fit>
-        What is React?
-      </Heading>
-    </Slide>
-    <Slide
-      transition={["slide"]}
-      bgColor="black"
-      notes="You can even put notes on your slide. How awesome is that?"
-    >
-      <Heading textColor="quartenary" caps fit>
-        What is React 2?
-      </Heading>
-    </Slide>
-  </SlideSet>
-);
-
-/*
-    {MarkdownSlides`
-<!--
-{
-  "className": "Slide--title"
-}
--->
-
+    <Slide>
+      <Markdown>
+        {`
 # What is React?
 
 > "A JavaScript Library for Building User Interfaces" -- [React](https://facebook.github.io/react/)
-
-
----
-
+`}
+      </Markdown>
+    </Slide>
+    <Slide>
+      <Markdown>
+        {`
 # Who Uses React?
 
 <div class="Split">
@@ -90,35 +65,45 @@ export default (theme, images) => (
     </ul>
   </div>
 </div>
-
-Add your own entry to [Facebook's Sites Using React Wiki](https://github.com/facebook/react/wiki/Sites-Using-React)
-
----
-
+`}
+      </Markdown>
+    </Slide>
+    <Slide>
+      <Markdown>
+        {`
 # So, It's like Angular or Ember?
 
 ## No
 
 >  "Lots of people use React as the V in MVC." -- [React](https://facebook.github.io/react/)
-
----
-
+`}
+      </Markdown>
+    </Slide>
+    <Slide>
+      <Markdown>
+        {`
 # So, It's a Template Library?
 
 ## No
 
 > "React components are far more powerful than Angular templates; they should be compared with Angular's directives instead" --Pete Hunt ([Quora](http://www.quora.com/Pete-Hunt/Posts/Facebooks-React-vs-AngularJS-A-Closer-Look))
-
----
-
+`}
+      </Markdown>
+    </Slide>
+    <Slide>
+      <Markdown>
+        {`
 # Why is it Compelling?
 
 * Declarative & Composable
 * Virtual DOM
 * One-Way Data Flow
-
----
-
+`}
+      </Markdown>
+    </Slide>
+    <Slide>
+      <Markdown>
+        {`
 # Declarative & Composable
 
 <div class="Split">
@@ -153,18 +138,24 @@ var NoteBox = React.createClass({
 });</code></pre>
   </div>
 </div>  
-
----
-
+`}
+      </Markdown>
+    </Slide>
+    <Slide>
+      <Markdown>
+        {`
 # Declarative & Composable
 
 * React is an Abstraction away from the DOM
 * It Simplifies the Mental Model
 * Re-render the whole app on every update
 * Mix and match components to build UIs
-
----
-
+`}
+      </Markdown>
+    </Slide>
+    <Slide>
+      <Markdown>
+        {`
 # Virtual DOM
 
 * Re-rendering the whole app on every update is not efficient
@@ -172,62 +163,49 @@ var NoteBox = React.createClass({
 * It works much like a Gaming Engine
 
 > "I tend to think of React as Version Control for the DOM" —AdonisSMU
-
----
-
-# One-Way Data Flow
+`}
+      </Markdown>
+    </Slide>
+    <Slide>
+      <Markdown>
+        {`
+# 1-Way Data Flow
 
 > "...you can set the directionality of it to be 2-Way Data Binding. That actually seems to be a good idea until you have a large scale application and then it turns out you have no idea whats going on... and turns out to be an anti-pattern for large apps." --[Misko Hevery](https://www.youtube.com/watch?v=uD6Okha_Yj0#t=1785)
-
----
-
+`}
+      </Markdown>
+    </Slide>
+    <Slide>
+      <Markdown>
+        {`
 # So, Why is it Compelling?
 
-## Declarative → Predictable → Confidence → Reliability <span class="Footnote">*<span>
+## Declarative → Predictable → Confidence → Reliability
 
-<br />
-
-<span class="Footnote">*</span> Tom Ochino's [React.js Conf keynote](https://www.youtube.com/watch?v=KVZ-P-ZI6W4#t=868)
-
----
-
+Tom Ochino's [React.js Conf keynote](https://www.youtube.com/watch?v=KVZ-P-ZI6W4#t=868)
+`}
+      </Markdown>
+    </Slide>
+    <Slide>
+      <Markdown>
+        {`
 # So, What is the Learning Curve?
 
 * Learning React? **Easy**
 * Learning the Rest? **Intermediate**
-
----
-
+`}
+      </Markdown>
+    </Slide>
+    <Slide>
+      <Markdown>
+        {`
 # Getting Started
 
 Once you know the basics (we'll cover those in this talk), then you can get started building locally with the [create-react-app](https://github.com/facebookincubator/create-react-app) command-line utility.
 
 Or, if you just want to tinker online then [codesandbox.io](https://codesandbox.io) is a great option!
 `}
+      </Markdown>
+    </Slide>
   </SlideSet>
 );
-
-# Large Scale Applications?
-
-* React scales better with complexity
-* Good news is... the main SPA frameworks are influencing each other
-* Angular 2x & Ember 2x are moving away from 2-way data binding
-
----
-
-# Is React Similar to Web Components?
-
-## No
-
-React is abstracted away from the browser, while Web Components will be a native browser feature
-
-> "We’re not going to build React on it because there’s a strong model difference -- imperative in Web Components to declarative in React.  Web Components doesn’t have an idiomatic way to define things like where events go." -—Sebastian [Google Docs](https://docs.google.com/document/d/1QZxArgMwidgCrAbuSikcB2iBxkffH6w0YB0C1qCsuH0/edit)
-
----
-
-# Can React be used with other JavaScript MVC Frameworks? Yes
-
-* [Improving Angular Rendering Performance](http://mono.software/posts/Improving-AngularJS-long-list-rendering-performance-using-ReactJS/) & [Faster Angular Rendering](http://www.williambrownstreet.net/blog/2014/04/faster-angularjs-rendering-angularjs-and-reactjs/)
-* [Using React as Backbone View](http://www.thomasboyt.com/2013/12/17/using-reactjs-as-a-backbone-view.html)
-
-*/

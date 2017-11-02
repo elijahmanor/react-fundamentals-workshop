@@ -16,6 +16,8 @@ As we build our React application we will continue to add new features and refac
 
 **This workshop will have some hands-on aspects. Please bring your own fully charged laptop.**
 
-## Slides
+## Test Your Environment
 
-http://elijahmanor.com/react-fundamentals-workshop
+```shell
+npm run setup
+```

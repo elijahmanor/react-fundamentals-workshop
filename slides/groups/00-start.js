@@ -79,8 +79,8 @@ export default (theme, images) => (
         ⬆️ to go up in a code slide
       </Heading>
     </Slide>
-    <Slide textColor="tertiary">
-      <Heading size={6} textColor="secondary" caps>
+    <Slide>
+      <Heading size={2} textColor="tertiary" caps>
         09am - 10am
       </Heading>
       <List>
@@ -91,8 +91,8 @@ export default (theme, images) => (
         <ListItem>Lab #2 - Props</ListItem>
       </List>
     </Slide>
-    <Slide textColor="tertiary">
-      <Heading size={6} textColor="secondary" caps>
+    <Slide>
+      <Heading size={2} textColor="tertiary" caps>
         10am - 11am
       </Heading>
       <List>
@@ -103,8 +103,8 @@ export default (theme, images) => (
         <ListItem>Lab #3 - State</ListItem>
       </List>
     </Slide>
-    <Slide textColor="tertiary">
-      <Heading size={6} textColor="secondary" caps>
+    <Slide>
+      <Heading size={2} textColor="tertiary" caps>
         11am - 12pm
       </Heading>
       <List>
@@ -115,16 +115,16 @@ export default (theme, images) => (
         <ListItem>Lab #5 - Forms and Refs</ListItem>
       </List>
     </Slide>
-    <Slide textColor="tertiary">
-      <Heading size={6} textColor="secondary" caps>
+    <Slide>
+      <Heading size={2} textColor="tertiary" caps>
         12pm - 01pm
       </Heading>
       <List>
         <ListItem>Lunch</ListItem>
       </List>
     </Slide>
-    <Slide textColor="tertiary">
-      <Heading size={6} textColor="secondary" caps>
+    <Slide>
+      <Heading size={2} textColor="tertiary" caps>
         01pm - 02pm
       </Heading>
       <List>
@@ -136,8 +136,8 @@ export default (theme, images) => (
         <ListItem>Lab #8 - Styled Components</ListItem>
       </List>
     </Slide>
-    <Slide textColor="tertiary">
-      <Heading size={6} textColor="secondary" caps>
+    <Slide>
+      <Heading size={2} textColor="tertiary" caps>
         02pm - 03pm
       </Heading>
       <List>
@@ -147,8 +147,8 @@ export default (theme, images) => (
         <ListItem>Lab #10 - Unit Testing</ListItem>
       </List>
     </Slide>
-    <Slide textColor="tertiary">
-      <Heading size={6} textColor="secondary" caps>
+    <Slide>
+      <Heading size={2} textColor="tertiary" caps>
         03pm - 04pm
       </Heading>
       <List>

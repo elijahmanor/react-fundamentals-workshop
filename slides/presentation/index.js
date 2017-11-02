@@ -33,6 +33,7 @@ import createTheme from "spectacle/lib/themes/default";
 // Require CSS
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
+require("./index.css");
 
 const images = {
   city: require("../assets/city.jpg"),
@@ -61,15 +62,6 @@ const theme = createTheme(
     secondary: "Helvetica"
   }
 );
-
-/*
-https://github.com/elijahmanor/elijahmanor.github.com/tree/master/talks/react-to-the-future/src/md
-require('!raw!../../md/gotchas.md')
-require('!raw!../../md/flux.md')
-require('!raw!../../md/node-modules.md')
-require('!raw!../../md/npm-scripts.md')
-require('!raw!../../md/resources.md')
-*/
 
 const Groups = {
   start: require("../groups/00-start.js").default,
@@ -228,8 +220,7 @@ let selectedGroups = window.localStorage.getItem("selectedGroups");
 if (selectedGroups) {
   selectedGroups = JSON.parse(selectedGroups);
 } else {
-  selectedGroups = ["start", "what", "lab01", "comps"];
-  // groupOptions;
+  selectedGroups = ["start", "what", "lab01"];
 }
 
 export default class Presentation extends React.Component {
@@ -263,7 +254,7 @@ export default class Presentation extends React.Component {
 
     return (
       <div>
-        <Deck transition={["slide"]} transitionDuration={500} theme={theme} progress="number">
+        <Deck transition={["slide"]} transitionDuration={500} theme={theme} progress="bar">
           {selectedGroups.map(selectedGroup => Groups[selectedGroup](theme, images))}
         </Deck>
         <Menu
