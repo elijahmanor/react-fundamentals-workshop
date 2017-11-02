@@ -38,7 +38,7 @@ export default (theme, images) => (
 \`\`\`shell
 > git clone https://github.com/elijahmanor/react-fundamentals-workshop.git
 > cd react-fundamentals-workshop
-> npm install
+> npm run setup     # checks environment
 > npm start         # open to localhost:3000
 > npm run storybook # open to localhost:3001
 > npm run slides    # open to localhost:3002
