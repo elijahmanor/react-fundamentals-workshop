@@ -1,10 +1,9 @@
 import React from "react";
 import classNames from "classnames";
-import Button from "../Button/Button";
 
 import "./Toolbar.css";
 
-const Toolbar = ({ className, user, onNew }) => {
+const Toolbar = ({ className, user }) => {
   const classes = classNames("Toolbar", className);
   return (
     <ul className={classes}>
@@ -19,15 +18,8 @@ const Toolbar = ({ className, user, onNew }) => {
         <span className="burn">c</span>
         <span className="fire">t</span>
       </li>
-      <li className="Toolbar-item" onClick={onNew}>
-        <Button>Fuse</Button>
-      </li>
     </ul>
   );
-};
-
-Toolbar.defaultProps = {
-  onNew() {}
 };
 
 export default Toolbar;
