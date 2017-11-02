@@ -8,6 +8,13 @@
   height: 5rem;
 }
 
+.Profile-reset {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+}
+
 .Profile-header {
   display: flex;
   padding: 1rem;
@@ -23,16 +30,23 @@
 
 .Profile-name {
   width: 100%;
+  overflow: hidden;
 }
 
 .Profile-fullName {
   font-size: 1.6rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Profile-userName {
   color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Profile-bio {
