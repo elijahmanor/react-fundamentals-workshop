@@ -4,8 +4,10 @@ import ReactDOM from "react-dom";
 import renderer from "react-test-renderer";
 import Icon from "../Icon/Icon";
 import FuseActions from "./FuseActions";
+import randomExplosion from "../../helpers/randomExplosion";
 
 jest.mock("../Icon/Icon", () => () => <div>Icon</div>);
+jest.mock("../../helpers/randomExplosion", () => x => x);
 
 describe("FuseActions", () => {
   const user = { fullName: "John Smith" };

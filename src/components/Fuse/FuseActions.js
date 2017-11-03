@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import Icon from "../Icon/Icon";
+import randomExplosion from "../../helpers/randomExplosion";
 
 import "./Fuse.css";
+
+const RandomExplosionIcon = randomExplosion(Icon);
 
 const FuseActions = ({ id, bomb, onBomb }) => {
   const handleClick = ({ isActive }) => {
@@ -12,7 +14,12 @@ const FuseActions = ({ id, bomb, onBomb }) => {
   return (
     <div className="FuseActions">
       <Icon type="comment-o" className="FuseActions-action" />
-      <Icon type="bomb" className="FuseActions-action" isActive={bomb} onClick={handleClick} />
+      <RandomExplosionIcon
+        type="bomb"
+        className="FuseActions-action"
+        isActive={bomb}
+        onClick={handleClick}
+      />
     </div>
   );
 };

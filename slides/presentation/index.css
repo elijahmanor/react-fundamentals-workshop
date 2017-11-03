@@ -1,0 +1,36 @@
+.react-live {
+  /* display: flex; */
+  /* flex-direction: row; */
+  height: 75vh;
+  position: relative;
+}
+
+.react-live .prism-code {
+  /* flex: 1; */
+  font-size: 1.25rem;
+  position: absolute;
+  top: 0;
+  right: 50%;
+  bottom: 0;
+  left: 0;
+}
+
+.react-live .react-live-preview {
+  /* flex: 1; */
+  background: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+}
+
+.react-live .react-live-error {
+  background: white;
+  position: absolute;
+  top: 75%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}

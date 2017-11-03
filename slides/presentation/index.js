@@ -33,6 +33,7 @@ import createTheme from "spectacle/lib/themes/default";
 // Require CSS
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
+require("./index.css");
 
 const images = {
   city: require("../assets/city.jpg"),
@@ -220,7 +221,7 @@ let selectedGroups = window.localStorage.getItem("selectedGroups");
 if (selectedGroups) {
   selectedGroups = JSON.parse(selectedGroups);
 } else {
-  selectedGroups = ["g13refs", "g14forms", "g15lab05"];
+  selectedGroups = ["g16hoc", "g17lab06"];
 }
 
 export default class Presentation extends React.Component {
@@ -236,11 +237,22 @@ export default class Presentation extends React.Component {
     mousetrap.bind("m", () => this.setState({ isMenuOpen: true }));
     mousetrap.bind("?", () => this.setState({ isHelpOpen: true }));
     mousetrap.bind("esc", () => this.setState({ isMenuOpen: false, isHelpOpen: false }));
+    mousetrap.bind("f", () => {
+      document.querySelector(".spectacle-content").style.transform = "none";
+      document.querySelector("iframe").style.position = "absolute";
+      document.querySelector("iframe").style.top = "1rem";
+      document.querySelector("iframe").style.right = "1rem";
+      document.querySelector("iframe").style.bottom = "5rem";
+      document.querySelector("iframe").style.left = "1rem";
+      document.querySelector("iframe").style.width = "95%";
+      document.querySelector("iframe").style.height = "95%";
+    });
   }
   componentWillUnmount() {
     mousetrap.unbind("m");
     mousetrap.unbind("?");
     mousetrap.unbind("esc");
+    mousetrap.unbind("f");
   }
   handleOnClose = () => {
     this.setState({ isMenuOpen: false, isHelpOpen: false });
@@ -254,7 +266,7 @@ export default class Presentation extends React.Component {
 
     return (
       <div>
-        <Deck transition={["slide"]} transitionDuration={500} theme={theme} progress="number">
+        <Deck transition={["slide"]} transitionDuration={500} theme={theme} progress="pacman">
           {selectedGroups.map(selectedGroup => Groups[selectedGroup](theme, images))}
         </Deck>
         <Menu
