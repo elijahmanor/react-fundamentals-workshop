@@ -10,6 +10,8 @@ setAddon(JSXAddon);
 const stories = storiesOf("Fuse", module);
 stories.addDecorator(withKnobs);
 
+// TODO: Add props to the following Fuse components and utilize the knob helpers
+
 stories.addWithJSX(
   "with Avatar",
   withNotes(
