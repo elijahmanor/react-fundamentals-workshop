@@ -7,6 +7,7 @@ import {
   List,
   Quote,
   Slide,
+  SlideSet,
   Text,
   CodePane,
   ComponentPlayground,
@@ -19,15 +20,31 @@ import {
   Image
 } from "spectacle";
 
-export default (theme, images) => [
-  <Slide
-    id="lab-09"
-    transition={["slide"]}
-    bgColor="black"
-    notes="You can even put notes on your slide. How awesome is that?"
-  >
-    <Heading textColor="quartenary" caps fit>
-      Lab #09 - Redux
-    </Heading>
-  </Slide>
-];
+export default (theme, images) => (
+  <SlideSet key="lab-09">
+    <Slide>
+      <Markdown>
+        {`
+# Lab 9
+## Redux
+`}
+      </Markdown>
+    </Slide>
+    <Slide>
+      <Markdown>
+        {`
+## \`react-fundamentals-workshop\`
+
+\`\`\`shell
+> git clone https://github.com/elijahmanor/react-fundamentals-workshop.git
+> cd react-fundamentals-workshop
+> npm run setup     # checks environment
+> npm start         # open to localhost:3000
+> npm run storybook # open to localhost:3001
+> npm run slides    # open to localhost:3002
+\`\`\`
+`}
+      </Markdown>
+    </Slide>
+  </SlideSet>
+);

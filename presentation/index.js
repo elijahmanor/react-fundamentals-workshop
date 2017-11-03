@@ -33,6 +33,7 @@ import createTheme from "spectacle/lib/themes/default";
 // Require CSS
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
+require("./index.css");
 
 const images = {
   city: require("../assets/city.jpg"),
@@ -44,7 +45,8 @@ const images = {
   cross: require("../assets/logo-cross.png"),
   egghead: require("../assets/logo-egghead.png"),
   leankit: require("../assets/logo-leankit.png"),
-  mvp: require("../assets/logo-mvp.png")
+  mvp: require("../assets/logo-mvp.png"),
+  showTheCode: require("../assets/show-me-the-code-now.gif")
 };
 
 preloader(images);
@@ -62,45 +64,36 @@ const theme = createTheme(
   }
 );
 
-/*
-https://github.com/elijahmanor/elijahmanor.github.com/tree/master/talks/react-to-the-future/src/md
-require('!raw!../../md/gotchas.md')
-require('!raw!../../md/flux.md')
-require('!raw!../../md/node-modules.md')
-require('!raw!../../md/npm-scripts.md')
-require('!raw!../../md/resources.md')
-*/
-
 const Groups = {
-  start: require("../groups/00-start.js").default,
-  what: require("../groups/01-what.js").default,
-  lab01: require("../groups/01L-lab-01-setup.js").default,
-  comps: require("../groups/02-comps.js").default,
-  props: require("../groups/03-props.js").default,
-  lab02: require("../groups/03L-lab-02-props.js").default,
-  state: require("../groups/04-state.js").default,
-  life: require("../groups/05-life.js").default,
-  lists: require("../groups/06-lists.js").default,
-  lab03: require("../groups/06L-lab-03-state.js").default,
-  events: require("../groups/07-events.js").default,
-  lab04: require("../groups/07L-lab-04-events.js").default,
-  refs: require("../groups/08-refs.js").default,
-  forms: require("../groups/09-forms.js").default,
-  lab05: require("../groups/09L-lab-05-forms.js").default,
-  hoc: require("../groups/10-hoc.js").default,
-  lab06: require("../groups/10L-lab-06-hoc.js").default,
-  renderProps: require("../groups/11-render-props.js").default,
-  lab07: require("../groups/11L-lab-07-render-props.js").default,
-  styles: require("../groups/12-styles.js").default,
-  lab08: require("../groups/12L-lab-08-styled-components.js").default,
-  redux: require("../groups/13-redux.js").default,
-  lab09: require("../groups/13L-lab-09-redux.js").default,
-  jest: require("../groups/14-jest.js").default,
-  lab10: require("../groups/14L-lab-10-jest.js").default,
-  perf: require("../groups/15-perf.js").default,
-  lab11: require("../groups/15L-lab-11-perf.js").default,
-  universal: require("../groups/16-universal.js").default,
-  finish: require("../groups/99-finish.js").default
+  g01start: require("../groups/00-start.js").default,
+  g02what: require("../groups/01-what.js").default,
+  g03lab01: require("../groups/01L-lab-01-setup.js").default,
+  g04comps: require("../groups/02-comps.js").default,
+  g05props: require("../groups/03-props.js").default,
+  g06lab02: require("../groups/03L-lab-02-props.js").default,
+  g07state: require("../groups/04-state.js").default,
+  g08life: require("../groups/05-life.js").default,
+  g09lists: require("../groups/06-lists.js").default,
+  g10lab03: require("../groups/06L-lab-03-state.js").default,
+  g11events: require("../groups/07-events.js").default,
+  g12lab04: require("../groups/07L-lab-04-events.js").default,
+  g13refs: require("../groups/08-refs.js").default,
+  g14forms: require("../groups/09-forms.js").default,
+  g15lab05: require("../groups/09L-lab-05-forms.js").default,
+  g16hoc: require("../groups/10-hoc.js").default,
+  g17lab06: require("../groups/10L-lab-06-hoc.js").default,
+  g18renderProps: require("../groups/11-render-props.js").default,
+  g19lab07: require("../groups/11L-lab-07-render-props.js").default,
+  g20styles: require("../groups/12-styles.js").default,
+  g21lab08: require("../groups/12L-lab-08-styled-components.js").default,
+  g22redux: require("../groups/13-redux.js").default,
+  g23lab09: require("../groups/13L-lab-09-redux.js").default,
+  g24jest: require("../groups/14-jest.js").default,
+  g25lab10: require("../groups/14L-lab-10-jest.js").default,
+  g26perf: require("../groups/15-perf.js").default,
+  g27lab11: require("../groups/15L-lab-11-perf.js").default,
+  g28universal: require("../groups/16-universal.js").default,
+  g29finish: require("../groups/99-finish.js").default
 };
 
 class Menu extends React.Component {
@@ -116,6 +109,7 @@ class Menu extends React.Component {
   handleChange = e => {
     const { checked, value } = e.target;
     selectedGroups = checked ? [...selectedGroups, value] : _.without(selectedGroups, value);
+    selectedGroups.sort();
     this.setState({ selectedGroups });
   };
   render() {
@@ -152,7 +146,6 @@ class Menu extends React.Component {
           }
         }}
       >
-        <h1>This is a Modal</h1>
         <form style={{ display: "flex", flexWrap: "wrap" }}>
           {groupOptions.map(group => (
             <label key={group} style={{ minWidth: "20rem" }}>
@@ -228,8 +221,21 @@ let selectedGroups = window.localStorage.getItem("selectedGroups");
 if (selectedGroups) {
   selectedGroups = JSON.parse(selectedGroups);
 } else {
-  selectedGroups = ["start", "what", "lab01", "comps"];
-  // groupOptions;
+  selectedGroups = [
+    "g01start",
+    "g03lab01",
+    "g06lab02",
+    "g10lab03",
+    "g12lab04",
+    "g15lab05",
+    "g17lab06",
+    "g19lab07",
+    "g21lab08",
+    "g23lab09",
+    "g25lab10",
+    "g27lab11",
+    "g29finish"
+  ];
 }
 
 export default class Presentation extends React.Component {
@@ -245,17 +251,29 @@ export default class Presentation extends React.Component {
     mousetrap.bind("m", () => this.setState({ isMenuOpen: true }));
     mousetrap.bind("?", () => this.setState({ isHelpOpen: true }));
     mousetrap.bind("esc", () => this.setState({ isMenuOpen: false, isHelpOpen: false }));
+    mousetrap.bind("f", () => {
+      document.querySelector(".spectacle-content").style.transform = "none";
+      document.querySelector("iframe").style.position = "absolute";
+      document.querySelector("iframe").style.top = "1rem";
+      document.querySelector("iframe").style.right = "1rem";
+      document.querySelector("iframe").style.bottom = "5rem";
+      document.querySelector("iframe").style.left = "1rem";
+      document.querySelector("iframe").style.width = "95%";
+      document.querySelector("iframe").style.height = "95%";
+    });
   }
   componentWillUnmount() {
     mousetrap.unbind("m");
     mousetrap.unbind("?");
     mousetrap.unbind("esc");
+    mousetrap.unbind("f");
   }
   handleOnClose = () => {
     this.setState({ isMenuOpen: false, isHelpOpen: false });
   };
   handleOnUpdate = selectedGroups => {
     window.localStorage.setItem("selectedGroups", JSON.stringify(selectedGroups));
+    history.pushState("", document.title, window.location.pathname);
     window.location.reload();
   };
   render() {
@@ -263,7 +281,7 @@ export default class Presentation extends React.Component {
 
     return (
       <div>
-        <Deck transition={["slide"]} transitionDuration={500} theme={theme} progress="number">
+        <Deck transition={["slide"]} transitionDuration={500} theme={theme} progress="pacman">
           {selectedGroups.map(selectedGroup => Groups[selectedGroup](theme, images))}
         </Deck>
         <Menu

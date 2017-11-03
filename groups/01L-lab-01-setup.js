@@ -22,24 +22,45 @@ import {
 
 export default (theme, images) => (
   <SlideSet key="lab-01">
-    <Slide
-      id="lab-01"
-      transition={["slide"]}
-      bgColor="black"
-      notes="You can even put notes on your slide. How awesome is that?"
-    >
-      <Heading textColor="quartenary" caps fit>
-        Lab #01 - Setup Environment
-      </Heading>
+    <Slide>
+      <Markdown>
+        {`
+# Lab 1
+## Setup Your Local Environment
+`}
+      </Markdown>
     </Slide>
-    <Slide
-      transition={["slide"]}
-      bgColor="black"
-      notes="You can even put notes on your slide. How awesome is that?"
-    >
-      <Heading textColor="quartenary" caps fit>
-        Lab #01 - Setup Environment 2
-      </Heading>
+    <Slide>
+      <Markdown>
+        {`
+# Prerequisites
+
+## Editor
+
+* [Microsoft VSCode](https://code.visualstudio.com/)
+* [GitHub Atom](https://atom.io/)
+
+## Tooling
+
+* [Git](https://www.linode.com/docs/development/version-control/how-to-install-git-on-mac-and-windows) or [GitHub Desktop](https://desktop.github.com/)
+* [node](https://nodejs.org/en/download/)
+`}
+      </Markdown>
+    </Slide>
+    <Slide>
+      <Markdown>
+        {`
+## \`react-fundamentals-workshop\`
+
+\`\`\`shell
+> git clone https://github.com/elijahmanor/react-fundamentals-workshop.git
+> cd react-fundamentals-workshop
+> npm run setup     # checks environment
+> npm start         # open to localhost:3000
+> npm run storybook # open to localhost:3001
+\`\`\`
+`}
+      </Markdown>
     </Slide>
   </SlideSet>
 );
