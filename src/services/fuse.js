@@ -2,18 +2,9 @@ import { getItem, setItem } from "./localStorage";
 import faker from "faker";
 import _ from "lodash";
 import uniqueString from "unique-string";
-// import store from "../path/to/store";
-// import ElizaBot from "eliza";
-// const eliza = new ElizaBot();
+import ElizaBot from "eliza";
 
-// export const bootstrap = () => {
-//   getFuses().then(fuses => {
-//     store.dispatch({
-//       type: "FUSE_LIST_SUCCESS",
-//       fuses
-//     });
-//   });
-// };
+const eliza = new ElizaBot();
 
 export const getFuses = () =>
   new Promise(resolve => {
@@ -68,7 +59,7 @@ export const addFuse = ({ message, user, replyingTo }) =>
 
 const generateReply = fuse => {
   // https://s3.amazonaws.com/uifaces/faces/twitter/katiemdaly/128.jpg
-  const message = ""; // eliza.transform(fuse.message);
+  const message = eliza.transform(fuse.message);
   const user = {
     name: { formatted: "Eliza" },
     thumbnailUrl: "https://s3.amazonaws.com/uifaces/faces/twitter/cynthiasavard/128.jpg",
