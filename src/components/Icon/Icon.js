@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -10,10 +10,21 @@ const Icon = ({ className, type, isActive, onClick }) => {
     "is-active": isActive
   });
   return (
-    <button className="Icon" onClick={onClick}>
+    <button className="Icon" onClick={() => onClick({ isActive: !isActive })}>
       <i className={classes} aria-hidden="true" />
     </button>
   );
+};
+
+Icon.propTypes = {
+  className: PropTypes.string,
+  type: PropTypes.string,
+  isActive: PropTypes.bool,
+  onClick: PropTypes.func
+};
+
+Icon.defaultProps = {
+  onClick() {}
 };
 
 export default Icon;

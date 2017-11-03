@@ -2,6 +2,7 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import ReactDOM from "react-dom";
 import renderer from "react-test-renderer";
+
 import Icon from "./Icon";
 
 describe("Icon", () => {
@@ -20,14 +21,15 @@ describe("Icon", () => {
       expect(component.prop("className")).toContain("Icon");
     });
 
-    it("should add an Icon class", () => {
-      const onClick = () => {};
+    it("should invoke onClick when button is clicked", () => {
+      const onClick = jest.fn();
       const component = render({ onClick });
-      expect(component.prop("onClick")).toBe(onClick);
+      component.find("button").simulate("click");
+      expect(onClick).toHaveBeenCalled();
     });
   });
 
-  describe("italic", () => {
+  describe("i element", () => {
     it("should append additional classNames to i element", () => {
       const component = render({ className: "Icon-additional" });
       expect(component.find("i").prop("className")).toContain("Icon-additional");

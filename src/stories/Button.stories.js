@@ -14,6 +14,10 @@ setAddon(JSXAddon);
 const stories = storiesOf("Button", module);
 stories.addDecorator(withKnobs);
 
-stories.addWithJSX("Enabled", () => <Button>Testing</Button>);
+stories.addWithJSX("Enabled", () => <Button onClick={action("onClick")}>Testing</Button>);
 
-stories.addWithJSX("Disabled", () => <Button disabled>Testing</Button>);
+stories.addWithJSX("Disabled", () => (
+  <Button disabled onClick={action("onClick")}>
+    Testing
+  </Button>
+));

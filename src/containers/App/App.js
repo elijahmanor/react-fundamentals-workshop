@@ -12,7 +12,6 @@ import Footer from "../../components/Footer/Footer";
 import { fetchUser, resetUser } from "../../redux/actions/user-actions";
 import { connect } from "react-redux";
 
-import "../../index.css";
 import "./App.css";
 
 class App extends Component {
