@@ -25,6 +25,19 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
+# Material
+
+* [Flux](http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/6/0)
+* [Redux](http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/6/12)
+* [Redux](http://elijahmanor.com/talks/react-patterns-practices/#/57)
+* [Immutability](http://elijahmanor.com/talks/react-patterns-practices/#/53)
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
 # Lab 9
 ## Redux
 `}

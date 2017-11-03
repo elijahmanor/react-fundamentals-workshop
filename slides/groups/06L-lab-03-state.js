@@ -25,6 +25,20 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
+# Material
+
+* [State](http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/2/18)
+* [Component Lifecycle](http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/2/28)
+* [Lists](http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/2/39)
+* [Terminology](http://elijahmanor.com/talks/react-patterns-practices/#/9)
+* [Terminology](http://elijahmanor.com/talks/react-patterns-practices/#/14)
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
 # Lab 3
 ## State
 `}

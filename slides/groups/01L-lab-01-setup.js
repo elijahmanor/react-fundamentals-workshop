@@ -25,11 +25,22 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
+# Material
+
+* [What is React?](http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/1/0)
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
 # Lab 1
 ## Setup Your Local Environment
 `}
       </Markdown>
     </Slide>
+
     <Slide>
       <Markdown>
         {`

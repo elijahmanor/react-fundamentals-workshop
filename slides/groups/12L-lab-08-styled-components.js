@@ -25,6 +25,16 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
+# Material
+
+* [Styles](http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/5/0)
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
 # Lab 8
 ## Styled Components
 `}

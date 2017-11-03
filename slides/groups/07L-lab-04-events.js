@@ -25,6 +25,16 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
+# Material
+
+* [Event Handlers](http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/2/24)
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
 # Lab 4
 ## Events
 `}
