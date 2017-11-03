@@ -25,6 +25,17 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
+# Material
+
+* [HOCs](http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/2/48)
+* [HOCs](http://elijahmanor.com/talks/react-patterns-practices/#/15)
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
 # Lab 6
 ## HOC
 `}

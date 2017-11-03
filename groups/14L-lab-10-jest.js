@@ -25,6 +25,16 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
+# Material
+
+* [Jest]()
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
 # Lab 10
 ## Jest
 `}

@@ -25,6 +25,18 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
+# Material
+
+* [Refs](http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/2/34)
+* [Forms](https://reactjs.org/docs/forms.html)
+* [Gotchas](http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/3/0)
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
 # Lab 5
 ## Forms
 `}

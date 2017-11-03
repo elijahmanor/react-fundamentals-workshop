@@ -25,6 +25,16 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
+# Material
+
+* [Performance](http://elijahmanor.com/talks/react-patterns-practices/#/42)
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
 # Lab 11
 ## Performance
 `}

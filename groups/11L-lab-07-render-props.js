@@ -25,6 +25,16 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
+# Material
+
+* [Render Props](http://elijahmanor.com/talks/react-patterns-practices/#/25)
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
 # Lab 7
 ## Render Props
 `}
