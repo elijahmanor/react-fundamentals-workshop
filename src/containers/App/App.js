@@ -5,6 +5,7 @@ import Profile from "../../components/Profile/Profile";
 import Fuses from "../../components/Fuses/Fuses";
 import Ads from "../../components/Ads/Ads";
 import Footer from "../../components/Footer/Footer";
+import { getUser } from "../../services/user";
 import { getFuses, updateFuse, addFuse } from "../../services/fuse";
 import getUserInfo from "../../helpers/getUserInfo";
 
@@ -15,6 +16,7 @@ const WrappedProfile = getUserInfo(Profile);
 export default class App extends Component {
   state = { user: {}, fuses: [], showCompose: false };
   componentDidMount() {
+    getUser().then(user => this.setState({ user }));
     this.fetchFuses();
   }
   fetchFuses = () => {
@@ -33,9 +35,6 @@ export default class App extends Component {
     addFuse({ message, user }).then(this.fetchFuses);
     this.handleClose();
   };
-  handleLoad = ({ user }) => {
-    this.setState({ user });
-  };
   render() {
     const { user, fuses, showCompose } = this.state;
     return (
@@ -47,7 +46,7 @@ export default class App extends Component {
           onCompose={this.handleCompose}
           onClose={this.handleClose}
         />
-        <WrappedProfile className="App-profile" onLoad={this.handleLoad} />
+        <Profile className="App-profile" user={user} />
         <Fuses className="App-list" fuses={fuses} onBomb={this.handleBomb} />
         <Ads className="App-ads" />
         <Footer className="App-footer" />

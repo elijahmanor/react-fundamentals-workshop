@@ -5,8 +5,6 @@ import randomExplosion from "../../helpers/randomExplosion";
 
 import "./Fuse.css";
 
-const RandomExplosionIcon = randomExplosion(Icon);
-
 const FuseActions = ({ id, bomb, onBomb }) => {
   const handleClick = ({ isActive }) => {
     onBomb({ id, bomb: isActive });
@@ -14,12 +12,7 @@ const FuseActions = ({ id, bomb, onBomb }) => {
   return (
     <div className="FuseActions">
       <Icon type="comment-o" className="FuseActions-action" />
-      <RandomExplosionIcon
-        type="bomb"
-        className="FuseActions-action"
-        isActive={bomb}
-        onClick={handleClick}
-      />
+      <Icon type="bomb" className="FuseActions-action" isActive={bomb} onClick={handleClick} />
     </div>
   );
 };
