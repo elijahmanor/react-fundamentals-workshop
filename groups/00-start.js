@@ -81,6 +81,23 @@ export default (theme, images) => (
     </Slide>
     <Slide>
       <Heading size={2} textColor="tertiary" caps>
+        <a href="https://app2.sli.do/event/dk1gi3v9">Labs Completed</a>
+      </Heading>
+      <iframe
+        src="https://app2.sli.do/event/dk1gi3v9"
+        style={{
+          width: "100%",
+          minHeight: "500px",
+          maxHeight: "100%",
+          border: "0",
+          bordeRadius: "4px",
+          overflow: "hidden"
+        }}
+        sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+      />
+    </Slide>
+    <Slide>
+      <Heading size={2} textColor="tertiary" caps>
         09am - 10am
       </Heading>
       <List>
