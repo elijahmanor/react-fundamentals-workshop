@@ -17,7 +17,9 @@ describe("FuseActions", () => {
     props = {
       id: "1",
       bomb: false,
+      user: { fullName: "sue" },
       onBomb() {},
+      onReply() {},
       ...props
     };
 
@@ -47,5 +49,25 @@ describe("FuseActions", () => {
     component = render({ bomb: true });
     const icon = component.find(Icon).last();
     expect(icon.prop("isActive")).toBe(true);
+  });
+
+  describe.only("actions", () => {
+    it("should invoke the onReply prop when the comment icon is clicked", () => {
+      const onReply = jest.fn();
+      component = render({ id: "42", user: { fullName: "sue" }, onReply });
+      elements = component.find(Icon);
+      const icon = elements.first();
+      icon.prop("onClick")();
+      expect(onReply).toHaveBeenCalledWith({ id: "42", user: { fullName: "sue" } });
+    });
+
+    it("should invoke the onBomb prop when the bomb icon is clicked", () => {
+      const onBomb = jest.fn();
+      component = render({ id: "42", bomb: false, onBomb });
+      elements = component.find(Icon);
+      const icon = elements.last();
+      icon.prop("onClick")({ isActive: true });
+      expect(onBomb).toHaveBeenCalled();
+    });
   });
 });
