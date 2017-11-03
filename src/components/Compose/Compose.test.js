@@ -23,9 +23,7 @@ describe("Compose", () => {
 
     beforeEach(() => {
       component = render();
-      // console.log("---component---", component.debug());
       element = component.find("ReactModal");
-      // console.log("---element---", element.debug());
     });
 
     describe("modal", () => {
@@ -42,7 +40,6 @@ describe("Compose", () => {
     describe("header", () => {
       beforeEach(() => {
         element = component.find(".Compose-header");
-        console.log("element", element.html());
       });
 
       it("should have the correct text", () => {
@@ -54,16 +51,103 @@ describe("Compose", () => {
       });
     });
 
-    it("should use fullName as the alt prop", () => {
-      expect(element.prop("alt")).toBe("John Smith's Avatar");
+    describe("textarea", () => {
+      beforeEach(() => {
+        component = render({ fuse: "testing" });
+        element = component.find(".Compose-text");
+      });
+
+      it("should render a textarea", () => {
+        expect(element.type()).toBe("textarea");
+      });
+
+      it("should render text from props", () => {
+        expect(element.prop("value")).toBe("testing");
+      });
+
+      it("should update state.fuse on change", () => {
+        component = render();
+        element = component.find(".Compose-text");
+        element.simulate("change", { target: { value: "onchange" } });
+        expect(component.state("fuse")).toBe("onchange");
+      });
+    });
+
+    describe("validation", () => {
+      it("should render a validation count", () => {
+        component = render({ fuse: "" });
+        element = component.find(".Compose-validation");
+        expect(element).toBeTruthy();
+      });
+
+      describe("empty", () => {
+        it("should render a validation count", () => {
+          component = render({ fuse: "" });
+          element = component.find(".Compose-validation");
+          expect(element.text()).toBe("256");
+        });
+      });
+
+      describe("little", () => {
+        it("should render a validation count", () => {
+          component = render({ fuse: "x".repeat(100) });
+          element = component.find(".Compose-validation");
+          expect(element.text()).toBe("156");
+        });
+      });
+
+      describe("warn", () => {
+        it("should render a validation count", () => {
+          component = render({ fuse: "x".repeat(200) });
+          element = component.find(".Compose-validation");
+          expect(element.text()).toBe("56");
+        });
+
+        it("should look like a warning", () => {
+          component = render({ fuse: "x".repeat(200) });
+          element = component.find(".Compose-validation");
+          expect(element.prop("className")).toContain("Compose-validation--warn");
+        });
+      });
+
+      describe("max", () => {
+        it("should render a validation count", () => {
+          component = render({ fuse: "x".repeat(256) });
+          element = component.find(".Compose-validation");
+          expect(element.text()).toBe("0");
+        });
+
+        it("should look like a warning", () => {
+          component = render({ fuse: "x".repeat(256) });
+          element = component.find(".Compose-validation");
+          expect(element.prop("className")).toContain("Compose-validation--warn");
+        });
+      });
+
+      describe("over", () => {
+        it("should render a validation count", () => {
+          component = render({ fuse: "x".repeat(300) });
+          element = component.find(".Compose-validation");
+          expect(element.text()).toBe("-44");
+        });
+
+        it("should look like an error", () => {
+          component = render({ fuse: "x".repeat(300) });
+          element = component.find(".Compose-validation");
+          expect(element.prop("className")).toContain("Compose-validation--over");
+        });
+      });
     });
   });
 
-  describe("fullName", () => {
-    it("should render the fullName in the header", () => {
-      component = render();
-      const element = component.find(".Fuse-fullName");
-      expect(element.text()).toBe("John Smith");
+  describe("button click", () => {
+    it("should trigger onCompose prop passing message & user", () => {
+      const onCompose = jest.fn();
+      const user = "johnsmith";
+      component = render({ fuse: "fuse", user, onCompose });
+      const element = component.find(Button);
+      element.simulate("click");
+      expect(onCompose).toHaveBeenCalledWith({ message: "fuse", user });
     });
   });
 });

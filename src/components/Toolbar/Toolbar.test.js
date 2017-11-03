@@ -3,6 +3,7 @@ import { shallow, mount } from "enzyme";
 import ReactDOM from "react-dom";
 import renderer from "react-test-renderer";
 import Button from "../Button/Button";
+
 import Toolbar from "./Toolbar";
 
 describe("Toolbar", () => {
@@ -32,24 +33,23 @@ describe("Toolbar", () => {
   });
 
   describe("fuse", () => {
-    let fuse, onNew;
+    let onNew;
 
     beforeEach(() => {
       onNew = jest.fn();
       component = render({ onNew });
-      fuse = component.find(".Toolbar-item").last();
     });
 
     it("should render a button", () => {
-      expect(fuse.find(Button)).toBePresent();
+      expect(component.find(Button)).toBeTruthy();
     });
 
     it("should have text Fuse", () => {
-      expect(fuse.find(Button).html()).toBe(`<button class="Button">Fuse</button>`);
+      expect(component.find(Button).prop("children")).toBe("Fuse");
     });
 
     it("should invoke onNew when clicked", () => {
-      fuse.simulate("click");
+      component.find(Button).simulate("click");
       expect(onNew).toBeCalled();
     });
   });

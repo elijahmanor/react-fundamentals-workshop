@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 import Button from "../Button/Button";
 
 import "./Toolbar.css";
@@ -19,11 +20,15 @@ const Toolbar = ({ className, onNew }) => {
         <span className="burn">c</span>
         <span className="fire">t</span>
       </li>
-      <li className="Toolbar-item" onClick={onNew}>
-        <Button>Fuse</Button>
+      <li className="Toolbar-item">
+        <Button onClick={onNew}>Fuse</Button>
       </li>
     </ul>
   );
+};
+
+Toolbar.propTypes = {
+  onNew: PropTypes.func
 };
 
 Toolbar.defaultProps = {
