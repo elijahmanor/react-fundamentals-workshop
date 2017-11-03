@@ -1,6 +1,8 @@
 code[class*="language-"],
 pre[class*="language-"] {
   white-space: pre-wrap;
+  font-size: 1.5rem;
+  max-height: 500px;
 }
 
 h1 {

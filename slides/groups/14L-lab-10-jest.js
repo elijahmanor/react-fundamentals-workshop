@@ -30,19 +30,25 @@ export default (theme, images) => (
 `}
       </Markdown>
     </Slide>
+
     <Slide>
       <Markdown>
         {`
-## \`react-fundamentals-workshop\`
+## Add 2 New Unit Tests to FuseActions.test.js
 
-\`\`\`shell
-> git clone https://github.com/elijahmanor/react-fundamentals-workshop.git
-> cd react-fundamentals-workshop
-> npm run setup     # checks environment
-> npm start         # open to localhost:3000
-> npm run storybook # open to localhost:3001
-> npm run slides    # open to localhost:3002
-\`\`\`
+1. Add a test for triggering the onReply
+1. Add a test for triggering the onBomb
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
+## Reference Material
+
+* [Jest Expect](https://jest-bot.github.io/jest/docs/expect.html)
+* [Enzyme API](http://airbnb.io/enzyme/docs/api/)
 `}
       </Markdown>
     </Slide>

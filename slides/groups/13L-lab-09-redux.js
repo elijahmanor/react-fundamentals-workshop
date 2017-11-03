@@ -30,19 +30,54 @@ export default (theme, images) => (
 `}
       </Markdown>
     </Slide>
+
     <Slide>
       <Markdown>
         {`
-## \`react-fundamentals-workshop\`
+## Add Profile Reset Feature
 
-\`\`\`shell
-> git clone https://github.com/elijahmanor/react-fundamentals-workshop.git
-> cd react-fundamentals-workshop
-> npm run setup     # checks environment
-> npm start         # open to localhost:3000
-> npm run storybook # open to localhost:3001
-> npm run slides    # open to localhost:3002
-\`\`\`
+1. Add onReset prop to Profile.js component & Icon that'll trigger it
+2. Add onReset handler in App.js and dispatch resetUser user-action
+3. Add a resetUser method to the user-actions.js file
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
+## Add onReset prop to Profile.js component & Icon that'll trigger it
+
+1. Add onReset prop
+2. Add an Icon with class of Profile-reset right under the Profile-background
+3. On click of the Icon trigger the onReset prop
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
+## Add onReset handler in App.js and dispatch resetUser user-action
+
+1. Add \`resetUser\` to your user-action import
+2. Add onReset to your Profile component
+3. Add a onReset method to the mapDispatchToProps function that will dispatch resetUser
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
+## Add a resetUser method to the user-actions.js file
+
+1. dispatch requestUser
+2. call api.promptUser
+3. on success dispatch receiveUser and pass the user
+4. on error dispatch errorUser and pass the error
+
+TIP: It'll look similar to the \`fetchUser\` action
 `}
       </Markdown>
     </Slide>
