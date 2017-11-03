@@ -33,16 +33,14 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
-## \`react-fundamentals-workshop\`
+## Add Bomb Support to Fuse
 
-\`\`\`shell
-> git clone https://github.com/elijahmanor/react-fundamentals-workshop.git
-> cd react-fundamentals-workshop
-> npm run setup     # checks environment
-> npm start         # open to localhost:3000
-> npm run storybook # open to localhost:3001
-> npm run slides    # open to localhost:3002
-\`\`\`
+1. Add \`onClick\` bomb support to \`FuseActions\`
+2. Allow \`Fuse\` to pass down \`onBomb\` to \`FuseActions\`
+3. Allow \`Fuses\` to pass \`onBomb\` down to \`Fuse\`
+4. Implement a simple \`Icon\` stateless functional react component
+5. In \`App.js\` pass \`onBomb\` to \`Fuses\` and update state when triggered
+6. Update the pattern library examples for \`Fuse.stories.js\`
 `}
       </Markdown>
     </Slide>

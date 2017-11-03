@@ -30,19 +30,51 @@ export default (theme, images) => (
 `}
       </Markdown>
     </Slide>
+
     <Slide>
       <Markdown>
         {`
-## \`react-fundamentals-workshop\`
+## Explosions and Fetching Fuses
 
-\`\`\`shell
-> git clone https://github.com/elijahmanor/react-fundamentals-workshop.git
-> cd react-fundamentals-workshop
-> npm run setup     # checks environment
-> npm start         # open to localhost:3000
-> npm run storybook # open to localhost:3001
-> npm run slides    # open to localhost:3002
-\`\`\`
+1. Build a randomExplosion HOC and wrap Icon in FuseActions.js
+2. Build a getUserInfo HOC and wrap Profile in App.js 
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
+## Build a randomExplosion HOC and wrap Icon in FuseActions.js: Part 1
+
+* Your HOC will wrap the [react-sound](https://github.com/leoasis/react-sound) component 
+* Randomly when the button is going active make a Blow-up sound AND add "is-explode" class to component
+* Use the lodash \`random\` method for your number 0-100 (>= 50 is explosion worthy)
+* Regardless, call the parent onClick prop if it exists
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
+## Build a randomExplosion HOC and wrap Icon in FuseActions.js: Part 2
+
+Then in FuseActions wrap the Icon with your HOC and use it instead of Icon for the Bomb
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
+## Build a getUserInfo HOC and wrap Profile in App.js 
+
+1. This HOC will have componentDidMount and do the getUser fetch inside
+2. update the state when the promise has succeeded
+3. and then call the prop.onLoad callback passing the user as a payload
+
+Then in App.js wrap the Profile with your HOC, add an onLoad handlers that will setState to the user
 `}
       </Markdown>
     </Slide>

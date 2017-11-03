@@ -47,7 +47,7 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
-1. Take the following HTML and build a \`Fuse.js\` React Component
+## Take the following HTML and build a \`Fuse.js\` React Component
 
 \`\`\`
 <div class="Fuse">
@@ -79,9 +79,28 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
-2. Add propTypes (date, from, fullName, email, message)
+## Add propTypes
+
+id, date, userName, fullName, avatar, email, message, bomb
+
+[React PropTypes Reference](https://reactjs.org/docs/typechecking-with-proptypes.html)
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
+## Example snippets for Gravatar & date formatting
 
 \`\`\`
+import md5 from "md5";
+import { format, formatDistanceStrict } from "date-fns";
+
+const email = "john.smith@gmail.com";
+const url = \`https://www.gravatar.com/avatar/$\{md5(email)\}\`;
+const title = format(date, "LLL");
+const relativeTime = formatDistanceStrict(date, new Date());
 \`\`\`
 `}
       </Markdown>
@@ -90,10 +109,11 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
-3. Example code for Gravatar & date formatting
+## Add two Pattern Library stories (\`Fuse.stories.js\`)
 
-\`\`\`
-\`\`\`
+one for using avatar and one for email
+
+Make sure to use [Storybook Knobs](https://github.com/storybooks/storybook/tree/master/addons/knobs)
 `}
       </Markdown>
     </Slide>
@@ -101,10 +121,13 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
-4. Make two examples (one for avatar and one for email)
+## Verify in Pattern Library
 
 \`\`\`
+$ npm run storybook
 \`\`\`
+
+open [http://localhost:3001](http://localhost:3001)
 `}
       </Markdown>
     </Slide>
@@ -112,20 +135,10 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
-5. Verify in Pattern Library
+## Run unit tests and modify \`Fuse.js\` until they all pass
 
 \`\`\`
-\`\`\`
-`}
-      </Markdown>
-    </Slide>
-
-    <Slide>
-      <Markdown>
-        {`
-6. Run unit tests and modify Fuse.js until they all pass
-
-\`\`\`
+$ npm test
 \`\`\`
 `}
       </Markdown>

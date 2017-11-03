@@ -30,18 +30,35 @@ export default (theme, images) => (
 `}
       </Markdown>
     </Slide>
+
     <Slide>
       <Markdown>
         {`
-## \`react-fundamentals-workshop\`
+## Rewrite the Button.js component to use styled-components
 
-\`\`\`shell
-> git clone https://github.com/elijahmanor/react-fundamentals-workshop.git
-> cd react-fundamentals-workshop
-> npm run setup     # checks environment
-> npm start         # open to localhost:3000
-> npm run storybook # open to localhost:3001
-> npm run slides    # open to localhost:3002
+* You don't need the Button.css anymore, but use it as reference
+* The JS for Button.js will be completely different
+* Use [styled-components](https://www.styled-components.com/) as a resource
+* You can also use [polished](https://polished.js.org/) to help you generate colors
+* Test your results in the Pattern Library
+`}
+      </Markdown>
+    </Slide>
+
+    <Slide>
+      <Markdown>
+        {`
+## Example snippets you could use
+
+\`\`\`
+import styled from "styled-components";
+import { darken, modularScale } from "polished";
+
+const SECTION_BG = "white";
+const BUTTON_COLOR = "#95c83e";
+const dark = darken(0.1, BUTTON_COLOR);
+const darker = darken(0.2, BUTTON_COLOR);
+const darkest = darken(0.3, BUTTON_COLOR);
 \`\`\`
 `}
       </Markdown>

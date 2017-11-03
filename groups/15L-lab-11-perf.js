@@ -33,16 +33,9 @@ export default (theme, images) => (
     <Slide>
       <Markdown>
         {`
-## \`react-fundamentals-workshop\`
+## Perf Tools
 
-\`\`\`shell
-> git clone https://github.com/elijahmanor/react-fundamentals-workshop.git
-> cd react-fundamentals-workshop
-> npm run setup     # checks environment
-> npm start         # open to localhost:3000
-> npm run storybook # open to localhost:3001
-> npm run slides    # open to localhost:3002
-\`\`\`
+[Profiling Components with the Chrome Performance Tab](https://reactjs.org/docs/optimizing-performance.html#profiling-components-with-the-chrome-performance-tab)
 `}
       </Markdown>
     </Slide>
