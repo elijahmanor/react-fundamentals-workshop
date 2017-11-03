@@ -1,18 +1,16 @@
 import React from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import Icon from "../Icon/Icon";
 
 import "./Profile.css";
 
-const Profile = ({ className, user = {}, onReset }) => {
+const Profile = ({ className, user = {} }) => {
   const classes = classNames("Profile", className);
   const fullName = user.displayName;
 
   return (
     <div className={classes}>
       <div className="Profile-background" />
-      <Icon className="Profile-reset" type="refresh" onClick={onReset} />
       <header className="Profile-header">
         <img className="Profile-avatar" src={user.thumbnailUrl} alt={fullName} />
         <div className="Profile-name">
@@ -33,12 +31,9 @@ Profile.propTypes = {
     displayName: PropTypes.string,
     preferredUsername: PropTypes.string,
     aboutMe: PropTypes.string
-  }),
-  onReset: PropTypes.func
+  })
 };
 
-Profile.defaultProps = {
-  onReset() {}
-};
+Profile.defaultProps = {};
 
 export default Profile;

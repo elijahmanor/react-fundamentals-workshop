@@ -9,7 +9,7 @@ import Profile from "../../components/Profile/Profile";
 import Ads from "../../components/Ads/Ads";
 import Footer from "../../components/Footer/Footer";
 
-import { fetchUser, resetUser } from "../../redux/actions/user-actions";
+import { fetchUser } from "../../redux/actions/user-actions";
 import { connect } from "react-redux";
 
 import "./App.css";
@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div className="App">
         <Toolbar className="App-toolbar" />
-        <Profile className="App-profile" user={this.props.user} onReset={this.props.onReset} />
+        <Profile className="App-profile" user={this.props.user} />
         <Fuses className="App-list" />
         <Ads className="App-ads" />
         <Footer className="App-footer" />
@@ -35,9 +35,6 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchData() {
       dispatch(fetchUser());
-    },
-    onReset() {
-      dispatch(resetUser());
     }
   };
 };

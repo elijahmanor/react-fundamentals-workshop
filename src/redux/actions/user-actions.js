@@ -32,13 +32,3 @@ export function fetchUser() {
       .catch(error => dispatch(errorUser(error)));
   };
 }
-
-export function resetUser() {
-  return dispatch => {
-    dispatch(requestUser());
-    return api
-      .promptUser()
-      .then(user => dispatch(receiveUser(user)))
-      .catch(error => dispatch(errorUser(error)));
-  };
-}
