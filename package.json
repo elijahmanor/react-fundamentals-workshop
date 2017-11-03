@@ -21,6 +21,7 @@
     "react-aux": "^1.1.0",
     "react-contenteditable": "^2.0.5",
     "react-dom": "^16.0.0",
+    "react-live": "^1.7.1",
     "react-modal": "^3.0.0",
     "react-scripts": "1.0.14",
     "react-select": "^1.0.0-rc.10",

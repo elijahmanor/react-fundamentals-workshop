@@ -24,11 +24,6 @@ export default (theme, images) => [
     <Heading size={1} fit caps lineHeight={1} textColor="secondary" margin="0 0 20px 0">
       Thank You!
     </Heading>
-    <Heading size={1} fit lineHeight={1}>
-      <Link href="http://bit.ly/react-fun" textColor="quartenary">
-        http://bit.ly/react-fun
-      </Link>
-    </Heading>
     <pre style={{ textAlign: "left", fontSize: "4rem" }}>
       <Link
         textColor="tertiary"

@@ -1,0 +1,148 @@
+code[class*="language-"],
+pre[class*="language-"] {
+  white-space: pre-wrap;
+}
+
+h1 {
+  color: #fff7d3;
+  font-size: 5.88rem;
+  margin: 0;
+}
+
+h2 {
+  margin: 1rem 0 0 0;
+}
+
+a {
+  color: #fff7d3;
+}
+
+blockquote {
+  background: #fff7d3;
+  padding: 1rem;
+  color: black;
+  border: 0.5rem solid #66dbf9;
+}
+
+blockquote p {
+  margin: 0;
+  font-size: 2.25rem;
+}
+
+ul,
+ol {
+  text-align: left;
+}
+
+ul,
+p {
+  font-size: 2.66rem;
+}
+
+.Split {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: stretch;
+  align-items: flex-start;
+}
+
+.Split .Split-column {
+  order: 0;
+  align-self: auto;
+  min-width: 0;
+  flex: 0 1 50%;
+  padding: 0.5rem;
+}
+
+.Split .Split-column--25 {
+  flex: 0 1 25%;
+}
+
+.Split .Split-column--30 {
+  flex: 0 1 30%;
+}
+
+.Split .Split-column--35 {
+  flex: 0 1 35%;
+}
+
+.Split .Split-column--40 {
+  flex: 0 1 40%;
+}
+
+.Split .Split-column--45 {
+  flex: 0 1 45%;
+}
+
+.Split .Split-column--55 {
+  flex: 0 1 55%;
+}
+
+.Split .Split-column--60 {
+  flex: 0 1 60%;
+}
+
+.Split .Split-column--65 {
+  flex: 0 1 65%;
+}
+
+.Split .Split-column--70 {
+  flex: 0 1 70%;
+}
+
+.Split .Split-column--75 {
+  flex: 0 1 75%;
+}
+
+.Split .Split-column--80 {
+  flex: 0 1 80%;
+}
+
+.Split p:first-of-type {
+  margin-top: 0;
+}
+
+.Split p,
+.Split h4 {
+  text-align: left;
+  line-height: 1.5em;
+}
+
+.react-live {
+  /* display: flex; */
+  /* flex-direction: row; */
+  height: 75vh;
+  position: relative;
+}
+
+.react-live .prism-code {
+  /* flex: 1; */
+  font-size: 1.25rem;
+  position: absolute;
+  top: 0;
+  right: 50%;
+  bottom: 0;
+  left: 0;
+}
+
+.react-live .react-live-preview {
+  /* flex: 1; */
+  background: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+}
+
+.react-live .react-live-error {
+  background: white;
+  position: absolute;
+  top: 75%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
