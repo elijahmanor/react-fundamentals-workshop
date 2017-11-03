@@ -31,9 +31,6 @@ export default class App extends Component {
     addFuse({ message, user }).then(this.fetchFuses);
     this.handleClose();
   };
-  handleLoad = ({ user }) => {
-    this.setState({ user });
-  };
   render() {
     const { user, fuses, showCompose } = this.state;
     return (
