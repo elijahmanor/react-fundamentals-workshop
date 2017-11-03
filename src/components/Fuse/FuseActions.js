@@ -7,13 +7,16 @@ import "./Fuse.css";
 
 const RandomExplosionIcon = randomExplosion(Icon);
 
-const FuseActions = ({ id, bomb, onBomb }) => {
+const FuseActions = ({ id, user, bomb, onBomb, onReply }) => {
   const handleClick = ({ isActive }) => {
     onBomb({ id, bomb: isActive });
   };
+  const handleReply = () => {
+    onReply({ id, user });
+  };
   return (
     <div className="FuseActions">
-      <Icon type="comment-o" className="FuseActions-action" />
+      <Icon type="comment-o" className="FuseActions-action" onClick={handleReply} />
       <RandomExplosionIcon
         type="bomb"
         className="FuseActions-action"
@@ -26,6 +29,7 @@ const FuseActions = ({ id, bomb, onBomb }) => {
 
 FuseActions.propTypes = {
   id: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
   bomb: PropTypes.bool.isRequired,
   onBomb: PropTypes.func
 };

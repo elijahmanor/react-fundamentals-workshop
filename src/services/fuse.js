@@ -53,7 +53,7 @@ export const addFuse = ({ message, user, replyingTo }) =>
         id: uniqueString(),
         fullName: user.name.formatted,
         avatar: user.thumbnailUrl,
-        date: Date.now(),
+        date: new Date(),
         userName: user.preferredUsername,
         email: user.email,
         message,
@@ -82,7 +82,6 @@ const generateReply = fuse => {
 };
 
 const generateFuses = () => {
-  console.log(_.times(2, faker.internet.avatar));
   return _.times(10, n => ({
     id: uniqueString(),
     fullName: faker.name.findName(),

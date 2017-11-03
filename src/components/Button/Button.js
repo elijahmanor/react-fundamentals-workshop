@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { darken, modularScale } from "polished";
+import { darken } from "polished";
 
 const SECTION_BG = "white";
 const BUTTON_COLOR = "#95c83e";

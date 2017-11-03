@@ -1,14 +1,13 @@
 import React from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import { get } from "lodash";
 import Icon from "../Icon/Icon";
 
 import "./Profile.css";
 
 const Profile = ({ className, user = {}, onReset }) => {
   const classes = classNames("Profile", className);
-  const fullName = /*get(user, "name.formatted") ||*/ user.displayName;
+  const fullName = user.displayName;
 
   return (
     <div className={classes}>

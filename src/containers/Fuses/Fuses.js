@@ -24,7 +24,7 @@ class FusesContainer extends Component {
     this.setState({ showDialog: false });
   };
   render() {
-    const { className, fuses, user, onBomb, onCompose } = this.props;
+    const { className, fuses, user, onBomb } = this.props;
     const { showDialog, replyingTo } = this.state;
 
     return (
